@@ -11,12 +11,12 @@ import model.dao.ExampleDAO;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public final class ModelFacade implements IModel {
+public final class Model implements IModel {
 
     /**
      * Instantiates a new model facade.
      */
-    public ModelFacade() {
+    public Model() {
         super();
     }
 
