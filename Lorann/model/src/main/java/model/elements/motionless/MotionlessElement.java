@@ -1,5 +1,13 @@
 package model.elements.motionless;
 
-public abstract class MotionlessElement {
+import model.elements.Element;
 
+public abstract class MotionlessElement extends Element
+{
+	MotionlessElement(Sprite sprite, Permeability permeability, Position position)
+	{
+		
+	}
+	
+	
 }
