@@ -1,5 +1,8 @@
 package controller;
 
-public class IorderPerformer {
 
+public interface IOrderPerformer {
+
+	public void orderPerform(final IUserOrder userOrder);
 }
+

@@ -1,5 +1,5 @@
 package controller;
 
-public class Order {
-
+public enum Order {
+	UP, RIGHT, DOWN, LEFT, SHOOT, NOP
 }

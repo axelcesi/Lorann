@@ -1,5 +1,9 @@
 package controller;
 
-public class IUserOrder {
+public interface IUserOrder {
+
+	int getPlayer();
+
+	Order getOrder();
 
 }
