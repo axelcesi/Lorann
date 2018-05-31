@@ -15,7 +15,7 @@ public interface IMobile extends IElement{
 	
 	public Image getImage();
 	
-	public void move();
+	public void move(Direction direction);
 	
 	public boolean isPlayer();
 
