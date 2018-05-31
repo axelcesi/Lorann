@@ -5,8 +5,8 @@ import java.awt.Graphics2D;
 import java.awt.Transparency;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
-import model.IDogfightModel;
-import model.IMobile;
+import model.IModel;
+import model.elements.mobile.IMobile;
 import gameframe.IGraphicsBuilder;
 
 public class GraphicsBuilder {
@@ -23,7 +23,7 @@ public class GraphicsBuilder {
 
 		for (final IMobile mobile : this.model.getMobiles()) {
 			this.drawMobile(mobile, graphics, observer);
-		}
+		}}
 		@Override
 		public int getGlobalWidth() {
 			return this.model.getArea().getWidth();
