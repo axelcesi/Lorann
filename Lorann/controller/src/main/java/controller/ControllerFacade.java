@@ -92,8 +92,8 @@ public class ControllerFacade implements IController {
     }*/
     public void play() {
 		this.gameLoop();
-		this.view.displayMessage("Game Over !");
-		this.view.closeAll();
+		this.viewSysteme.displayMessage("Game Over !");
+		this.viewSysteme.closeAll();
 	}
 
 	private void gameLoop() {

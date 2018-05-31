@@ -22,7 +22,7 @@ public abstract class Main {
 
 		final ControllerFacade controller = new ControllerFacade(model);
 		final ViewFacade view = new ViewFacade(controller, model, model);
-		controller.setViewFacade(view);
+		controller.setViewSystem(view);
 		controller.play();
 	}
 
