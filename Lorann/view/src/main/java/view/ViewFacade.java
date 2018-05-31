@@ -26,7 +26,7 @@ public class ViewFacade implements IView {
     public ViewFacade(final IOrderPerformer orderPerformer, final IModel model, final Observable observable) {
         /*super();*/
     	this.observable = observable;
-		this.graphicsBuilder = new GraphicsBuilder(dogfightModel);
+		this.graphicsBuilder = new GraphicsBuilder(Model);
 		this.keyEvent = new keyEvent(orderPerformer);
 		SwingUtilities.invokeLater(this);
     }

@@ -66,7 +66,7 @@ public class ControllerFacade implements IController {
 						direction = this.model.getMobileByPlayer(userOrder.getPlayer()).getDirection();
 						break;
 				}
-				plane.setDirection(direction);
+				lorran.setDirection(direction);
 			}
 		}
 	}
@@ -122,9 +122,9 @@ public class ControllerFacade implements IController {
 		final IMobile lorran = this.model.getMobileByPlayer(player);
 		if (lorran != null) {
 			final Position position = new Position(lorran.getPosition().getX() + ((lorran.getWidth() - Spell.getWidthWithADirection(lorran.getDirection())) / 2),
-					lorran.getPosition().getY() + ((lorran.getHeight() - Spell.getHeightWithADirection(plane.getDirection())) / 2));
+					lorran.getPosition().getY() + ((lorran.getHeight() - Spell.getHeightWithADirection(lorran.getDirection())) / 2));
 			this.model.addMobile(new Spell(lorran.getDirection(), position));
-			switch (plane.getDirection()) {
+			switch (lorran.getDirection()) {
 				case UP:
 					position.setY(position.getY() - lorran.getHeight() - lorran.getSpeed());
 					break;
