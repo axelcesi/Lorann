@@ -5,6 +5,9 @@ import java.awt.Graphics2D;
 import java.awt.Transparency;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
+import model.IDogfightModel;
+import model.IMobile;
+import gameframe.IGraphicsBuilder;
 
 public class GraphicsBuilder {
 	private final IModel model;

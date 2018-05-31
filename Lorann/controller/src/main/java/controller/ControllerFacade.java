@@ -17,7 +17,7 @@ import view.IView;
 public class ControllerFacade implements IController {
 	private static int TIME_SLEEP = 30;
     /** The view. */
-    private final IView  view;
+    private final IView  viewSysteme;
     private boolean	isGameOver	= false;
     /** The model. */
     private final IModel model;
@@ -92,8 +92,8 @@ public class ControllerFacade implements IController {
     }*/
     public void play() {
 		this.gameLoop();
-		this.viewSystem.displayMessage("Game Over !");
-		this.viewSystem.closeAll();
+		this.view.displayMessage("Game Over !");
+		this.view.closeAll();
 	}
 
 	private void gameLoop() {
@@ -177,7 +177,7 @@ public class ControllerFacade implements IController {
      * @return the view
      */
     public IView getView() {
-        return this.view;
+        return this.viewSysteme;
     }
 
     /**
@@ -188,4 +188,7 @@ public class ControllerFacade implements IController {
     public IModel getModel() {
         return this.model;
     }
+    public void setViewSystem(final IView viewSysteme) {
+		this.viewSysteme = viewSysteme;
+	}
 }
