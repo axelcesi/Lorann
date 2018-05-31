@@ -7,9 +7,9 @@ public class Monster extends Mobile{
 	private Sprite sprite;
 	private int type;
 	
-	Monster(Position position, Direction direction)
+	Monster(int x, int y, Direction direction)
 	{
-		
+		super(sprite, x, y, direction);
 	}
 	
 	public void die()

@@ -1,6 +1,7 @@
 package model.elements;
 
 import java.awt.Image;
+import java.io.IOException;
 
 public abstract class Element implements IElement 
 {
@@ -8,9 +9,9 @@ public abstract class Element implements IElement
 	private Sprite sprite;
 
 	
-	protected Element(Sprite sprite, int x, int y)
+	protected Element(String sprite, int x, int y) throws IOException
 	{
-		this.sprite = sprite;
+		this.sprite = new Sprite(sprite);
 		this.position = new Position(x,y);
 	}
 	
@@ -19,9 +20,9 @@ public abstract class Element implements IElement
 		return this.sprite;
 	}
 	
-	public void setSprite(Sprite sprite)
+	public void setSprite(String sprite) throws IOException
 	{
-		this.sprite = sprite;
+		this.sprite = new Sprite(sprite);
 	}	
 	
 	public Image getImage()

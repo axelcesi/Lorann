@@ -1,4 +1,4 @@
-package model.elements;
+package model.elements.motionless;
 
 public enum Permeability {
 	BLOCKING,

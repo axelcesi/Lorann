@@ -1,6 +1,9 @@
 package model.elements.mobile;
 
+import java.awt.Image;
+
 import model.elements.IElement;
+import model.elements.Position;
 
 public interface IMobile extends IElement{
 
