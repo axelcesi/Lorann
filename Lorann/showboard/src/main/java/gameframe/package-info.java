@@ -3,4 +3,4 @@
  * @version 3.0
  */
 
-package showboard;
+package gameframe;

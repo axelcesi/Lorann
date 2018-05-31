@@ -21,4 +21,9 @@ public class Monster extends Mobile{
 	{
 		
 	}
+	
+	public void move()
+	{
+		
+	}
 }
