@@ -7,7 +7,7 @@ public class BoneVertical extends MotionlessElement
 	
 	BoneVertical(int x, int y) throws IOException
 	{
-		super("bone_vertical.png", x, y, Permeability.BLOCKING);
+		super("vertical_bone.png", x, y, Permeability.BLOCKING);
 	}
 	
 }
