@@ -6,12 +6,12 @@ import model.elements.Element;
 
 public abstract class MotionlessElementFactory {
 
-	private Bone bone;
+	/*private Bone bone;
 	private BoneVertical boneVertical;
 	private BoneHorizontal boneHorizontal;
 	private Gate gate;
 	private Purse purse;
-	private CrystalBall crystalBall;
+	private CrystalBall crystalBall;*/
 	
 	public static Element createBone(int x, int y) throws IOException
 	{

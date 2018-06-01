@@ -21,31 +21,32 @@ public class Hero extends Mobile{
 	
 	public void launchSpell(Direction direction)
 	{
+		Spell spell;
 		switch(direction)
 		{
 		case UP:
-			Spell spell = new Spell(this.getPosition().getX(), this.getPosition().getY() + 1, Direction.DOWN);
+			spell = new Spell(this.getPosition().getX(), this.getPosition().getY() + 1, Direction.DOWN);
 			break;
 		case RIGHT:
-			Spell spell = new Spell(this.getPosition().getX() - 1, this.getPosition().getY(), Direction.LEFT);
+			spell = new Spell(this.getPosition().getX() - 1, this.getPosition().getY(), Direction.LEFT);
 			break;
 		case DOWN:
-			Spell spell = new Spell(this.getPosition().getX(), this.getPosition().getY() - 1, Direction.UP);
+			spell = new Spell(this.getPosition().getX(), this.getPosition().getY() - 1, Direction.UP);
 			break;
 		case LEFT:
-			Spell spell = new Spell(this.getPosition().getX() + 1, this.getPosition().getY(), Direction.RIGHT);
+			spell = new Spell(this.getPosition().getX() + 1, this.getPosition().getY(), Direction.RIGHT);
 			break;
 		case UPRIGHT:
-			Spell spell = new Spell(this.getPosition().getX() - 1, this.getPosition().getY() + 1, Direction.DOWNLEFT);
+			spell = new Spell(this.getPosition().getX() - 1, this.getPosition().getY() + 1, Direction.DOWNLEFT);
 			break;
 		case UPLEFT:
-			Spell spell = new Spell(this.getPosition().getX() + 1, this.getPosition().getY() + 1, Direction.DOWNRIGHT);
+			spell = new Spell(this.getPosition().getX() + 1, this.getPosition().getY() + 1, Direction.DOWNRIGHT);
 			break;
 		case DOWNRIGHT:
-			Spell spell = new Spell(this.getPosition().getX() - 1, this.getPosition().getY() - 1, Direction.UPLEFT);
+			spell = new Spell(this.getPosition().getX() - 1, this.getPosition().getY() - 1, Direction.UPLEFT);
 			break;
 		case DOWNLEFT:
-			Spell spell = new Spell(this.getPosition().getX() + 1, this.getPosition().getY() - 1, Direction.UPRIGHT);
+			spell = new Spell(this.getPosition().getX() + 1, this.getPosition().getY() - 1, Direction.UPRIGHT);
 			break;
 		case NOP :
 			break;
