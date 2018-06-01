@@ -11,6 +11,7 @@ import model.elements.IElement;
 import model.elements.mobile.Hero;
 import model.elements.mobile.IMobile;
 import model.elements.mobile.Mobile;
+import model.elements.motionless.MotionlessElementFactory;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -20,11 +21,11 @@ import model.elements.mobile.Mobile;
  */
 public final class Model implements IModel {
 
-    private final ArrayList<ArrayList<IElement>> elements;
+    private final ArrayList<ArrayList<Element>> elements;
     
     public Model(int level) 
     {
-    	this.elements = new ArrayList<>();
+    	
     }
   /*  public Model() throws IOException 
     {
@@ -37,7 +38,7 @@ public final class Model implements IModel {
     	
     }
 
-    public IElement[] createMap()
+    public void createMap() throws IOException
     {
     	String Layout = this.getLevelLayout();
     	
@@ -47,7 +48,20 @@ public final class Model implements IModel {
     		{
     			switch (Layout.charAt(j*12 + i))
     			{
-    			case
+    			case 'O' :
+    				elements[i][j] = MotionlessElementFactory.createElement("O", i, j);
+    			case '*' :
+    				
+    			case '$' :
+    			case '-' :
+    			case '@' :
+    			case '1' :
+    			case '2' :
+    			case '3' :
+    			case '4' :
+    			case 'P' :
+    			case 'I' :
+    			case '.' :
     			}
     		}
     	}

@@ -11,37 +11,37 @@ public abstract class MotionlessElementFactory {
 	private Purse purse;
 	private CrystalBall crystalBall;
 	
-	public MotionlessElement createBone(int x, int y) throws IOException
+	public static MotionlessElement createBone(int x, int y) throws IOException
 	{
 		return new Bone(x,y);
 	}
 	
-	public MotionlessElement createBoneVertical(int x, int y) throws IOException
+	public static MotionlessElement createBoneVertical(int x, int y) throws IOException
 	{
 		return new BoneVertical(x,y);
 	}
 	
-	public MotionlessElement createBoneHorizontal(int x, int y) throws IOException
+	public static MotionlessElement createBoneHorizontal(int x, int y) throws IOException
 	{
 		return new BoneHorizontal(x,y);
 	}
 	
-	public MotionlessElement createGate(int x, int y) throws IOException
+	public static MotionlessElement createGate(int x, int y) throws IOException
 	{
 		return new Gate(x,y);
 	}
 	
-	public MotionlessElement createPurse(int x, int y) throws IOException
+	public static MotionlessElement createPurse(int x, int y) throws IOException
 	{
 		return new Purse(x,y);
 	}
 	
-	public MotionlessElement createCrystalBall(int x, int y) throws IOException
+	public static MotionlessElement createCrystalBall(int x, int y) throws IOException
 	{
 		return new CrystalBall(x,y);
 	}
 	
-	public MotionlessElement createElement(String type, int x, int y) throws IOException
+	public static MotionlessElement createElement(String type, int x, int y) throws IOException
 	{
 		MotionlessElement element = null;
 		switch (type)
