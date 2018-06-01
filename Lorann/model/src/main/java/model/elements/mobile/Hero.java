@@ -2,15 +2,14 @@ package model.elements.mobile;
 
 import java.io.IOException;
 
-import model.elements.Position;
-import model.elements.Sprite;
+import model.elements.Element;
+
 
 public class Hero extends Mobile{
-	private static String SPRITE = "lorann_l.png";
 	
 	public Hero(int x, int y) throws IOException
 	{
-		super(SPRITE, x, y, Direction.NOP);		
+		super("lorann_l.png", x, y, Direction.NOP);		
 	}
 	
 	public void die()
@@ -19,7 +18,7 @@ public class Hero extends Mobile{
 	}
 	
 	
-	public void launchSpell(Direction direction)
+	public Element launchSpell(Direction direction) throws IOException
 	{
 		Spell spell;
 		switch(direction)
@@ -49,8 +48,14 @@ public class Hero extends Mobile{
 			spell = new Spell(this.getPosition().getX() + 1, this.getPosition().getY() - 1, Direction.UPRIGHT);
 			break;
 		case NOP :
+			spell = new Spell(this.getPosition().getX() + 1, this.getPosition().getY() - 1, Direction.UPRIGHT);
 			break;
+		default:
+			spell = new Spell(this.getPosition().getX() + 1, this.getPosition().getY() - 1, Direction.UPRIGHT);
+			break;
+			
 		}
+		return spell;
 		//Spell spell = new Spell(this.getPosition().getX(), this.getPosition().getY(), direction);
 	}
 	
@@ -58,4 +63,9 @@ public class Hero extends Mobile{
 	{
 		
 	}
+	public boolean isPlayer()
+	{
+		return true;
+	}
+	
 }

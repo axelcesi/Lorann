@@ -1,19 +1,17 @@
 package model.elements.mobile;
 
+import java.io.IOException;
+
 import model.elements.Position;
 import model.elements.Sprite;
 
 public class Monster extends Mobile{
 	private int type;
 	
-	Monster(int x, int y, Direction direction, int type)
+	Monster(int x, int y, int type) throws IOException
 	{
-		switch (type)
-		{
-		case 1 : super("monster1.png", x, y, direction);
-			break;
-		}
-		
+		super(null, x, y, Direction.NOP);
+		this.setSprite("monster"+ type +".png");
 	}
 	
 	public void die()

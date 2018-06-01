@@ -1,15 +1,16 @@
 package model.elements.mobile;
 
+import java.io.IOException;
+
 import model.elements.Position;
 import model.elements.Sprite;
 
 public class Spell extends Mobile{
 
-	public Sprite sprite = new Sprite("fireball.png");
-	
-	Spell(int x, int y, Direction direction)
+
+	Spell(int x, int y, Direction direction) throws IOException
 	{
-		super(sprite, x, y ,direction);
+		super("fireball.png", x, y ,direction);
 	}
 	
 	public void manageCollision()
@@ -17,8 +18,10 @@ public class Spell extends Mobile{
 		
 	}
 	
-	public void move()
+	public boolean isSpell()
 	{
-		
+		return true;
 	}
+	
+
 }

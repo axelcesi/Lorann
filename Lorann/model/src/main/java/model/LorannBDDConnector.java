@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.mysql.cj.jdbc.CallableStatement;
+
 /**
  * <h1>The Class BoulderDashBDDConnector.</h1>
  *
@@ -18,10 +20,10 @@ final class LorannBDDConnector {
     private static LorannBDDConnector instance;
 
     /** The login. */
-    private static String                  user     = "root";
+    private static String                  user     = "java";
 
     /** The password. */
-    private static String                  password = "";
+    private static String                  password = "java";
 
     /** The url. */
     private static String                  url      = "jdbc:mysql://localhost/lorann?useSSL=false&serverTimezone=UTC";
@@ -35,7 +37,7 @@ final class LorannBDDConnector {
     /**
      * Instantiates a new boulder dash BDD connector.
      */
-    private LorannBDDConnector() {
+    LorannBDDConnector() {
         this.open();
     }
 
@@ -164,4 +166,9 @@ final class LorannBDDConnector {
         this.statement = statement;
     }
 
+    public String getResult(int level) throws SQLException
+    {
+    	final java.sql.CallableStatement callStatement = prepareCall("{call query_level(" + level + ")}");
+    	return callStatement.getResultSet().getString(2);
+    }
 }
