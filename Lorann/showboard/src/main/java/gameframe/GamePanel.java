@@ -6,12 +6,14 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
+import view.GraphicsBuilder;
+
 class GamePanel extends JPanel implements Observer {
 	private static final long				serialVersionUID	= 3987064896591403626L;
-	private final IGraphicsBuilder	graphicsBuilder;
+	private final GraphicsBuilder	graphicsBuilder;
 
-	public GamePanel(final IGraphicsBuilder graphicsBuilder) {
-		this.graphicsBuilder = graphicsBuilder;
+	public GamePanel(final GraphicsBuilder graphicsBuilder2) {
+		this.graphicsBuilder = graphicsBuilder2;
 	}
 
 	@Override

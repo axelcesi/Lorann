@@ -7,7 +7,7 @@ import model.elements.mobile.IMobile;
 
 public interface IModel {
 	public String getLevelLayout();
-	public void addMobile(IMobile mobile);
-	public void removeMobile(IMobile mobile);
+	public void addMobile(IElement mobile, int x, int y);
+	public void removeMobile(IElement mobile, int x, int y);
 	public void createMap() throws IOException;
 }

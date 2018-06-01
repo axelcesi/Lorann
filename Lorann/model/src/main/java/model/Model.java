@@ -21,11 +21,11 @@ import model.elements.motionless.MotionlessElementFactory;
  */
 public final class Model implements IModel {
 
-    private final ArrayList<ArrayList<Element>> elements;
+    private final IElement elements[][];
     
     public Model(int level) 
     {
-    	
+    	elements = new IElement[12][20];
     }
   /*  public Model() throws IOException 
     {
@@ -49,31 +49,43 @@ public final class Model implements IModel {
     			switch (Layout.charAt(j*12 + i))
     			{
     			case 'O' :
-    				elements[i][j] = MotionlessElementFactory.createElement("O", i, j);
+    				this.elements[i][j] = MotionlessElementFactory.createElement("Bone", i, j);
     			case '*' :
-    				
+    				this.elements[i][j] = MotionlessElementFactory.createElement("CrystalBall", i, j);
     			case '$' :
+    				this.elements[i][j] = MotionlessElementFactory.createElement("Gate", i, j);
     			case '-' :
+    				this.elements[i][j] = MotionlessElementFactory.createElement("BoneHorizontal", i, j);
     			case '@' :
+    				
     			case '1' :
+    				
     			case '2' :
     			case '3' :
     			case '4' :
     			case 'P' :
+    				this.elements[i][j] = MotionlessElementFactory.createElement("Purse", i, j);
     			case 'I' :
+    				this.elements[i][j] = MotionlessElementFactory.createElement("BoneVertical", i, j);
     			case '.' :
+    				this.elements[i][j] = null;
     			}
     		}
     	}
     }
     
-    public void addMobile(IMobile mobile)
+    public void addMobile(IElement mobile, int x ,int y)
     {
-    	this.mobiles.add(mobile);
+    	//this.elements[i][j].add(mobile);
     }
     
-    public void removeMobile(IMobile mobile)
+    public void removeMobile(IElement mobile, int x, int y)
     {
     	
+    }
+    
+    public IElement[][] getMobiles()
+    {
+    	return this.elements;
     }
 }

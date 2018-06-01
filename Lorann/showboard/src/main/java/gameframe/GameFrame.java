@@ -7,11 +7,13 @@ import java.util.Observable;
 
 import javax.swing.JFrame;
 
+import view.GraphicsBuilder;
+
 public class GameFrame extends JFrame implements KeyListener {
 	private static final long			serialVersionUID	= -1112124206501543946L;
 	private final IEventPerformer	eventPerformer;
 
-	public GameFrame(final String title, final IEventPerformer eventPerformer, final IGraphicsBuilder graphicsBuilder, final Observable observable)
+	public GameFrame(final String title, final IEventPerformer eventPerformer, final GraphicsBuilder graphicsBuilder, final Observable observable)
 			throws HeadlessException {
 		this.eventPerformer = eventPerformer;
 

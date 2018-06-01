@@ -2,6 +2,8 @@ package model.elements.motionless;
 
 import java.io.IOException;
 
+import model.elements.Element;
+
 public abstract class MotionlessElementFactory {
 
 	private Bone bone;
@@ -11,39 +13,39 @@ public abstract class MotionlessElementFactory {
 	private Purse purse;
 	private CrystalBall crystalBall;
 	
-	public static MotionlessElement createBone(int x, int y) throws IOException
+	public static Element createBone(int x, int y) throws IOException
 	{
 		return new Bone(x,y);
 	}
 	
-	public static MotionlessElement createBoneVertical(int x, int y) throws IOException
+	public static Element createBoneVertical(int x, int y) throws IOException
 	{
 		return new BoneVertical(x,y);
 	}
 	
-	public static MotionlessElement createBoneHorizontal(int x, int y) throws IOException
+	public static Element createBoneHorizontal(int x, int y) throws IOException
 	{
 		return new BoneHorizontal(x,y);
 	}
 	
-	public static MotionlessElement createGate(int x, int y) throws IOException
+	public static Element createGate(int x, int y) throws IOException
 	{
 		return new Gate(x,y);
 	}
 	
-	public static MotionlessElement createPurse(int x, int y) throws IOException
+	public static Element createPurse(int x, int y) throws IOException
 	{
 		return new Purse(x,y);
 	}
 	
-	public static MotionlessElement createCrystalBall(int x, int y) throws IOException
+	public static Element createCrystalBall(int x, int y) throws IOException
 	{
 		return new CrystalBall(x,y);
 	}
 	
-	public static MotionlessElement createElement(String type, int x, int y) throws IOException
+	public static Element createElement(String type, int x, int y) throws IOException
 	{
-		MotionlessElement element = null;
+		Element element = null;
 		switch (type)
 		{
 		case "Bone" :

@@ -3,6 +3,8 @@ package model;
 import java.sql.SQLException;
 import java.util.List;
 
+import model.elements.mobile.IMobile;
+
 /**
  * <h1>The Interface IModel.</h1>
  *
@@ -41,4 +43,6 @@ public interface IModel {
      *             the SQL exception
      */
     List<Example> getAllExamples() throws SQLException;
+
+	IMobile getMobiles();
 }
