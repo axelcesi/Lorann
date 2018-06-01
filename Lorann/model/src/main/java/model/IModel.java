@@ -1,11 +1,11 @@
 package model;
 
 import model.elements.IElement;
-import model.elements.mobile.Mobile;
+import model.elements.mobile.IMobile;
 
 public interface IModel {
 	public String getLevelLayout();
-	public void addMobile(Mobile mobile);
-	public void removeMobile(Mobile mobile);
+	public void addMobile(IMobile mobile);
+	public void removeMobile(IMobile mobile);
 	public IElement[] createMap();
 }

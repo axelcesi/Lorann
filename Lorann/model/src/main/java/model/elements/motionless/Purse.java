@@ -1,12 +1,13 @@
 package model.elements.motionless;
 
+import java.io.IOException;
+
 public class Purse extends MotionlessElement
 {
-	static private Sprite SPRITE = new SPRITE("purse.png");
-	
-	Purse()
-	{
 		
+	Purse(int x, int y) throws IOException
+	{
+		super("closed_gate.png", x, y, Permeability.BLOCKING);
 	}
 	
 }

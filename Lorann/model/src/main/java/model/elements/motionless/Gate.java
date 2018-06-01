@@ -4,21 +4,21 @@ import java.io.IOException;
 
 public class Gate extends MotionlessElement
 {
-	private String SPRITE = "closed_gate.png";
 	private boolean open = false;
 	
 	Gate(int x, int y) throws IOException
 	{
-		super(SPRITE, x, y, Permeability.BLOCKING);
+		super("closed_gate.png", x, y, Permeability.BLOCKING);
 	}
 	
 	public boolean isOpen()
 	{
-		
+		return open;
 	}
 	
-	public void Open()
+	public void Open() throws IOException
 	{
-		
+		this.open = true;
+		this.setSprite("open_gate.png");
 	}
 }

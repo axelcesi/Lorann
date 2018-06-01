@@ -3,7 +3,7 @@ package model.elements.motionless;
 import java.io.IOException;
 
 import model.elements.Element;
-import model.elements.Permeability;
+import model.elements.motionless.Permeability;
 
 
 public abstract class MotionlessElement extends Element

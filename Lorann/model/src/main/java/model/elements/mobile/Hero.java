@@ -6,11 +6,11 @@ import model.elements.Position;
 import model.elements.Sprite;
 
 public class Hero extends Mobile{
-	//private Sprite sprite = new Sprite("lorann_l.png");
+	private static String SPRITE = "lorann_l.png";
 	
-	Hero(String sprite, int x, int y) throws IOException
+	public Hero(int x, int y) throws IOException
 	{
-		super(sprite, x, y, Direction.NOP);		
+		super(SPRITE, x, y, Direction.NOP);		
 	}
 	
 	public void die()

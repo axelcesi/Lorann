@@ -4,12 +4,16 @@ import model.elements.Position;
 import model.elements.Sprite;
 
 public class Monster extends Mobile{
-	private Sprite sprite;
 	private int type;
 	
-	Monster(int x, int y, Direction direction)
+	Monster(int x, int y, Direction direction, int type)
 	{
-		super(sprite, x, y, direction);
+		switch (type)
+		{
+		case 1 : super("monster1.png", x, y, direction);
+			break;
+		}
+		
 	}
 	
 	public void die()

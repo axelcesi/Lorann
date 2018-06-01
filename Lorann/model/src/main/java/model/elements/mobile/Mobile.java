@@ -9,7 +9,7 @@ import model.elements.Sprite;
 
 public abstract class Mobile extends Element implements IMobile{
 
-	private Sprite sprite;
+	private String sprite;
 	private Position position;
 	private Direction direction;
 	
