@@ -1,15 +1,15 @@
 package model.elements.mobile;
 
-import java.awt.Image;
+
 import java.io.IOException;
 
 import model.elements.Element;
 import model.elements.Position;
-import model.elements.Sprite;
+
 
 public abstract class Mobile extends Element implements IMobile{
 
-	private String sprite;
+
 	private Position position;
 	private Direction direction;
 	

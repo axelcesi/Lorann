@@ -7,7 +7,7 @@ public class CrystalBall extends MotionlessElement
 	
 	CrystalBall(int x, int y) throws IOException
 	{
-		super("crystall_ball.png", x, y, Permeability.PENETRABLE);
+		super("crystal_ball.png", x, y, Permeability.PENETRABLE);
 	}
 	
 }

@@ -16,9 +16,10 @@ public class Sprite {
 	{
 		this.imageName = imageName;
 		
-		this.image = ImageIO.read(new File("images/" + this.imageName));
+		this.image = ImageIO.read(new File("./sprite/" + this.imageName));
 		
 		this.ImageLoaded = true;
+		//System.out.println(imageName);
 	}
 	
 	public Image getImage()

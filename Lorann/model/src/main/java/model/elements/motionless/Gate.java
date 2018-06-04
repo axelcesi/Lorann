@@ -8,7 +8,7 @@ public class Gate extends MotionlessElement
 	
 	Gate(int x, int y) throws IOException
 	{
-		super("closed_gate.png", x, y, Permeability.BLOCKING);
+		super("gate_closed.png", x, y, Permeability.BLOCKING);
 	}
 	
 	public boolean isOpen()

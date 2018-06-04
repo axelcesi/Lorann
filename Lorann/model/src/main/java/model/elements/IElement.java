@@ -10,4 +10,5 @@ public interface IElement {
 	public Image getImage();
 	public Position getPosition();
 	public void setPosition(Position position);
+	public boolean isHero();
 }

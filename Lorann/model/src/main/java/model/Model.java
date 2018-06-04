@@ -1,85 +1,94 @@
 package model;
 
+import java.awt.Image;
 import java.io.IOException;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-import com.mysql.cj.jdbc.CallableStatement;
-
-import model.elements.Element;
 import model.elements.IElement;
-import model.elements.mobile.Hero;
-import model.elements.mobile.IMobile;
-import model.elements.mobile.Mobile;
 import model.elements.mobile.MobileFactory;
 import model.elements.motionless.MotionlessElementFactory;
 
-/**
- * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
 public final class Model implements IModel {
 
     private final IElement elements[][];
-    private static int LEVEL = 1;
+
     
     public Model() throws IOException, SQLException 
     {
     	elements = new IElement[12][20];
     	createMap();
     }
-  /*  public Model() throws IOException 
-    {
-    	this.elements = new ArrayList<>();
-    	Mobile Larann = new Hero(50,50);
-    }*/
-    
-    
-   
+
+  
     public String getLevelLayout(int level) throws SQLException
     {
-    	LorannBDDConnector connector = new LorannBDDConnector();
-       	return connector.getResult(level);
+    	//LorannBDDConnector connector = new LorannBDDConnector();
+       //	return connector.getResult(level);
+    	return("not ok");
     }
 
     public void createMap() throws IOException, SQLException
     {
-    	String Layout = this.getLevelLayout(LEVEL);
+    	String Layout = 
+    			".....O-------O......\n" + 
+    			".....I.......I......\n" + 
+    			".....I.......I......\n" + 
+    			".....I...@...I......\n" + 
+    			"O----O-OPOPO-O----O.\n" + 
+    			"I....1.......2....I.\n" + 
+    			"I................*I.\n" + 
+    			"O----OPO-O-OPO----O.\n" + 
+    			".....I.......I......\n" + 
+    			".....I...3...I......\n" + 
+    			".....I.......I......\n" + 
+    			".....O--O$O--O......\n";
+    	
     	
     	for (int i = 0; i < 12; i++)
     	{
     		for (int j = 0 ; j < 20; j++)
     		{
-    			switch (Layout.charAt(j*12 + i))
+    			//System.out.print(i*20 + "|" + j +":"+ Layout.charAt(i*21 + j));
+    			switch (Layout.charAt(i*21 + j))
     			{
     			case 'O' :
     				this.elements[i][j] = MotionlessElementFactory.createElement("Bone", i, j);
+    				break;
     			case '*' :
     				this.elements[i][j] = MotionlessElementFactory.createElement("CrystalBall", i, j);
+    				break;
     			case '$' :
     				this.elements[i][j] = MotionlessElementFactory.createElement("Gate", i, j);
+    				break;
     			case '-' :
     				this.elements[i][j] = MotionlessElementFactory.createElement("BoneHorizontal", i, j);
+    				break;
     			case '@' :
     				this.elements[i][j] = MobileFactory.createElement("Hero", i, j ,0);
+    				break;
     			case '1' :
     				this.elements[i][j] = MobileFactory.createElement("Monster", i, j ,1);
+    				break;
     			case '2' :
     				this.elements[i][j] = MobileFactory.createElement("Monster", i, j ,2);
+    				break;
     			case '3' :
     				this.elements[i][j] = MobileFactory.createElement("Monster", i, j ,3);
+    				break;
     			case '4' :
     				this.elements[i][j] = MobileFactory.createElement("Monster", i, j ,4);
+    				break;
     			case 'P' :
     				this.elements[i][j] = MotionlessElementFactory.createElement("Purse", i, j);
+    				break;
     			case 'I' :
     				this.elements[i][j] = MotionlessElementFactory.createElement("BoneVertical", i, j);
+    				break;
     			case '.' :
     				this.elements[i][j] = null;
+    				//System.out.println(".");
+    				break;
     			}
     		}
     	}
@@ -95,8 +104,61 @@ public final class Model implements IModel {
     	
     }
     
-    public IElement[][] getMobiles()
+    public IElement[][] getElements()
     {
     	return this.elements;
+    }
+    
+    public IElement getElement(int x, int y)
+    {
+    	return this.elements[x][y];
+    }
+    
+    public Image[][] getImages()
+    {
+    	Image[][] img = new Image[12][20];
+    	for (int i = 0 ; i < 12; i++)
+    	{
+    		for (int j = 0; j < 20; j++)
+    		{
+    			if (this.elements[i][j] != null)
+    			{
+    				img[i][j] = this.elements[i][j].getImage();
+    			}
+    			else
+    			{
+    				img[i][j] = null;
+    			}
+    		}
+    	}
+    	return img;
+    }
+    
+    public Image getImage(int x, int y)
+    {
+    Image[][] img = this.getImages();
+    	if (img[x][y] != null)
+    	{
+        	return this.elements[x][y].getImage();
+    	}
+    	else
+    	{
+    		return null;
+    	}
+    }
+    
+    public IElement getHero()
+    {
+    	for (int i = 0; i < 12; i ++)
+    	{
+    		for (int j = 0; j < 20; j++)
+    		{
+    			if (this.elements[i][j].isHero() == true)
+    			{
+    				return this.elements[i][j];
+    			}
+    		}
+    	}
+    	return null;
     }
 }

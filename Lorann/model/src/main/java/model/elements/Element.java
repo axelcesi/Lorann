@@ -39,4 +39,9 @@ public abstract class Element implements IElement
 	{
 		this.position = position;
 	}
+	
+	public boolean isHero()
+	{
+		return false;
+	}
 }

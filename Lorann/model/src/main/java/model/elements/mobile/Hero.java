@@ -5,11 +5,12 @@ import java.io.IOException;
 import model.elements.Element;
 
 
-public class Hero extends Mobile{
+public class Hero extends Mobile implements Runnable{
 	
+	private boolean hasSpell;
 	public Hero(int x, int y) throws IOException
 	{
-		super("lorann_l.png", x, y, Direction.NOP);		
+		super("lorann_l.png", x, y, Direction.NOP);	
 	}
 	
 	public void die()
@@ -63,9 +64,99 @@ public class Hero extends Mobile{
 	{
 		
 	}
-	public boolean isPlayer()
+	public boolean isHero()
 	{
 		return true;
+	}
+	
+	public void run()
+	{
+		while (true)
+		{
+			switch (this.getDirection())
+			{
+			case UP :
+				try {
+					this.setSprite("lorann_up.png");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			case NOP :
+				switch (this.getSprite().getImageName())
+				{
+				case "lorann_l.png" :
+					try {
+						this.setSprite("lorann_ul.png");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					break;
+				case "lorann_ul.png" :
+					try {
+						this.setSprite("lorann_u.png");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					break;
+				case "lorann_u.png" :
+					try {
+						this.setSprite("lorann_ur.png");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					break;
+				case "lorann_ur.png" :
+					try {
+						this.setSprite("lorann_r.png");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					break;
+				case "lorann_r.png" :
+					try {
+						this.setSprite("lorann_br.png");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					break;
+				case "lorann_br.png" :
+					try {
+						this.setSprite("lorann_b.png");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					break;
+				case "lorann_b.png" :
+					try {
+						this.setSprite("lorann_bl.png");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					break;
+				case "lorann_bl.png" :
+					try {
+						this.setSprite("lorann_l.png");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					break;
+					
+				}
+				break;
+			default :
+				break;
+			}		
+		}		
 	}
 	
 }

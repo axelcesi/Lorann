@@ -7,12 +7,15 @@ import model.elements.IElement;
 
 public abstract class MobileFactory {
 
-	public Element createHero(int x, int y) throws IOException
+	public static Element createHero(int x, int y) throws IOException
 	{
-		return new Hero(x,y);		
+		Hero hero = new Hero(x,y);
+		Thread tHero = new Thread(hero);
+		tHero.start();
+		return hero;
 	}
 	
-	public Element createMonster(int x, int y, int type) throws IOException
+	public static Element createMonster(int x, int y, int type) throws IOException
 	{
 		return new Monster(x, y, type);
 	}

@@ -6,37 +6,41 @@ import java.util.Observable;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-import controller.IOrderPerformer;
+//import controller.IOrderPerformer;
 import model.Model;
 import model.IModel;
-import gameframe.GameFrame;
-import gameframe.IEventPerformer;
-import gameframe.IGraphicsBuilder;
+//import gameframe.IEventPerformer;
 
-public class ViewFacade implements IView, Runnable {
+
+public class View implements Runnable {
+	private Model model;
 	private final GraphicsBuilder	graphicsBuilder;
-	private final EventPerformer	eventPerformer;
+	//private final EventPerformer	eventPerformer;
 	private final Observable			observable;
 	private GameFrame							gameFrame;
 
-	public ViewFacade(final IOrderPerformer orderPerformer, final IModel model, final Observable observable) {
-		this.observable = observable;
+	public View(final IModel model) {
+		this.observable = new Observable();
 		this.graphicsBuilder = new GraphicsBuilder(model);
-		this.eventPerformer = new EventPerformer(orderPerformer);
+		//this.gameFrame = new GameFrame(this.graphicsBuilder, this.observable);
 		SwingUtilities.invokeLater(this);
 	}
 
 	@Override
 	public void run() {
-		this.gameFrame = new GameFrame("Lorran", this.eventPerformer, this.graphicsBuilder, this.observable);
-	}
 
-	@Override
+			//for (int i = 0; i < 100; i++)
+			this.gameFrame = new GameFrame(this.graphicsBuilder, this.observable);
+			//this.gameFrame.update(graphicsBuilder);
+		}
+			
+		//, this.observable);
+	
+	
 	public void displayMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
 	}
 
-	@Override
 	public void closeAll() {
 		this.gameFrame.dispose();
 	}

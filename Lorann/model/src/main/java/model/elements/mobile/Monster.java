@@ -10,8 +10,8 @@ public class Monster extends Mobile{
 	
 	Monster(int x, int y, int type) throws IOException
 	{
-		super(null, x, y, Direction.NOP);
-		this.setSprite("monster"+ type +".png");
+		super("monster_1.png", x, y, Direction.NOP);
+		this.setSprite("monster_"+type+".png");
 	}
 	
 	public void die()

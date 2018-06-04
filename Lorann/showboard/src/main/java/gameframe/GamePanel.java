@@ -1,29 +1,40 @@
-package gameframe;
+package view;
 
 import java.awt.Graphics;
 import java.util.Observable;
-import java.util.Observer;
 
 import javax.swing.JPanel;
 
-import view.GraphicsBuilder;
 
-class GamePanel extends JPanel implements Observer {
-	private static final long				serialVersionUID	= 3987064896591403626L;
+ 
+public class GamePanel extends JPanel 
+{ 
+	private static final long serialVersionUID = 1L;
 	private final GraphicsBuilder	graphicsBuilder;
-
-	public GamePanel(final GraphicsBuilder graphicsBuilder2) {
-		this.graphicsBuilder = graphicsBuilder2;
+	
+	public GamePanel(GraphicsBuilder graphicsBuilder)
+	{
+		this.graphicsBuilder = graphicsBuilder;
 	}
-
-	@Override
+  
+	public void updates()
+	{
+		
+		this.repaint();
+		System.out.println("repaint");
+		
+	}
+	
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
 	}
+	
+	public void paintComponent(Graphics g){
+		System.out.println("ok");
 
-	@Override
-	protected void paintComponent(final Graphics graphics) {
-		this.graphicsBuilder.applyModelToGraphic(graphics, this);
+
+		this.graphicsBuilder.applyModelToGraphic(g, null);
 	}
-
 }
+    
+
