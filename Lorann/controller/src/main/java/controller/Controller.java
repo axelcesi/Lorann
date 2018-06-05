@@ -4,8 +4,10 @@ import java.io.IOException;
 
 import model.IModel;
 import model.Model;
+import model.elements.IElement;
 import model.elements.mobile.Direction;
 import model.elements.mobile.Hero;
+import model.elements.mobile.Mobile;
 import view.View;
 
 public class Controller implements IOrderPerformer {
@@ -26,7 +28,6 @@ public class Controller implements IOrderPerformer {
         if (userOrder != null) {
             final Hero hero = (Hero) this.model.getHero();
             if (hero != null) {
-                System.out.println("le h�ro existe");
             }
                 Direction direction = null;
                 switch (userOrder.getOrder()) {
@@ -41,6 +42,18 @@ public class Controller implements IOrderPerformer {
                         break;
                     case LEFT:
                         direction = Direction.LEFT;
+                        break;
+                    case UPRIGHT:
+                        direction = Direction.UPRIGHT;
+                        break;
+                    case UPLEFT:
+                        direction = Direction.UPLEFT;
+                        break;
+                    case DOWNRIGHT:
+                        direction = Direction.DOWNRIGHT;
+                        break;
+                    case DOWNLEFT:
+                        direction = Direction.DOWNLEFT;
                         break;
                     case SHOOT:
                         try {
@@ -57,12 +70,50 @@ public class Controller implements IOrderPerformer {
                         break;
                 }
                 //hero.setDirection(direction);
-                hero.move(direction);
+                tryMove(direction, hero);
 
             }
         }
 
-    /**
+    private void tryMove(Direction direction, Mobile mobile) 
+    {
+    	IElement element = this.model.getNextElement(mobile.getPosition(),direction);
+    	String type;
+    	if (element != null)
+    		type = element.getType();
+    	else type = "void";
+    	
+    	switch (mobile.manageCollision(type))
+    	{
+    	case "block":
+    		break;
+    	case "pass":
+    		mobile.move(direction);
+    		break;
+    	case "pick":
+    		mobile.move(direction);
+    		model.removeElement(element);
+    		break;
+    	case "pick&open":
+    		mobile.move(direction);
+    		model.removeElement(element);
+    		try {
+				model.getGate().open();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		break;
+    	case "die":
+    		//mobile.die();
+    		this.isGameOver=true;
+    		break;
+    	default:
+    		break;
+    	}		
+	}
+
+	/**
      * Start.
      *
      * @throws SQLException

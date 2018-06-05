@@ -20,8 +20,6 @@ public class GraphicsBuilder {
 		this.model = model;
 	}
 	public void applyModelToGraphic(final Graphics g ,final ImageObserver observer) {
-		System.out.println("apply");
-		
 		for (IElement element : this.model.getElements())
 		{
 			
@@ -30,20 +28,6 @@ public class GraphicsBuilder {
 				g.drawImage(element.getImage(), element.getPosition().getX(), element.getPosition().getY(), observer);
 			}
 		}
-		/*for (int i = 0; i < 12; i++)
-		{
-			for (int j = 0; j < 20; j ++)
-			{
-				if (model.getImage(i, j) != null)
-				{
-					g.drawImage(model.getImage(i, j), j*32, i*32, null);
-					//System.out.println("model");
-				}
-			}
-		}
-		for (final IElement element : this.getElements())
-    	{
-    		*/
 	}
 }
 		/*for (final IElement element : this.model.getElements()) {

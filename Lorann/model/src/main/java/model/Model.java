@@ -6,8 +6,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 import model.elements.IElement;
+import model.elements.Position;
+import model.elements.mobile.Direction;
 import model.elements.mobile.Mobile;
 import model.elements.mobile.MobileFactory;
+import model.elements.motionless.Gate;
 import model.elements.motionless.MotionlessElementFactory;
 
 public final class Model extends Observable implements IModel {
@@ -100,9 +103,10 @@ public final class Model extends Observable implements IModel {
     	this.elements.add(mobile);
     }
     
-    public void removeMobile(IElement mobile, int x, int y)
+    public void removeElement(IElement element)
     {
-    	
+    	int ind = elements.indexOf(element);
+    	this.elements.remove(ind);
     }
     
     public ArrayList<IElement> getElements()
@@ -110,6 +114,81 @@ public final class Model extends Observable implements IModel {
     	return this.elements;
     }
     
+    public IElement getUniqueElement(String type)
+    {
+    	for (IElement element : this.getElements())
+    	{
+   			if (element != null && element.getType() == type)
+    		{
+    			return element;
+    		}
+      	}
+    	return null;
+    }
+    
+    public IElement getNextElement(Position position, Direction direction)
+    {
+    	for (IElement element : this.getElements())
+    	{
+    		if (element != null)
+    		{
+    		switch (direction)
+    		{
+    		case UP :
+	    		if (element.getPosition().getX() == position.getX() && element.getPosition().getY() == position.getY()-32)
+	    		{
+	    			return element;
+	    		}
+	    		break;
+    		case DOWN:
+	    		if (element.getPosition().getX() == position.getX() && element.getPosition().getY() == position.getY()+32)
+	    		{
+	    			return element;
+	    		}
+	    		break;
+    		case LEFT :
+	    		if (element.getPosition().getX() == position.getX()-32 && element.getPosition().getY() == position.getY())
+	    		{
+	    			return element;
+	    		}
+	    		break;
+    		case RIGHT :
+	    		if (element.getPosition().getX() == position.getX()+32 && element.getPosition().getY() == position.getY())
+	    		{
+	    			return element;
+	    		}
+	    		break;
+    		case UPLEFT :
+	    		if (element.getPosition().getX() == position.getX()-32 && element.getPosition().getY() == position.getY()-32)
+	    		{
+	    			return element;
+	    		}
+	    		break;
+    		case UPRIGHT :
+	    		if (element.getPosition().getX() == position.getX()+32 && element.getPosition().getY() == position.getY()-32)
+	    		{
+	    			return element;
+	    		}
+	    		break;
+    		case DOWNLEFT :
+	    		if (element.getPosition().getX() == position.getX()-32 && element.getPosition().getY() == position.getY()+32)
+	    		{
+	    			return element;
+	    		}
+	    		break;
+    		case DOWNRIGHT :
+	    		if (element.getPosition().getX() == position.getX()+32 && element.getPosition().getY() == position.getY()+32)
+	    		{
+	    			return element;
+	    		}
+	    		break;
+			default:
+				break;
+    		}
+    		}
+    	}
+    	return null;
+    }
     /*public IElement getElement(int x, int y)
     {
     	return this.elements[x][y];
@@ -125,6 +204,8 @@ public final class Model extends Observable implements IModel {
     	}
     	return mobiles;
 	}
+    
+    
     
     public ArrayList<Image> getImages()
     {
@@ -160,6 +241,18 @@ public final class Model extends Observable implements IModel {
    			if (element != null && element.getType() == "Hero")
     		{
     			return element;
+    		}
+      	}
+    	return null;
+    }
+    
+    public Gate getGate()
+    {
+    	for (IElement element : this.getElements())
+    	{
+   			if (element != null && element.getType() == "gateClosed")
+    		{
+    			return (Gate) element;
     		}
       	}
     	return null;

@@ -33,8 +33,6 @@ public class GamePanel extends JPanel implements Observer
 	}
 	
 	public void paintComponent(Graphics g){
-		System.out.println("ok");
-		//this.setBackground(Color.BLACK);
 		Rectangle r = this.getBounds ( ) ;
         g.setColor(Color.BLACK);
         g.fillRect ( r.x, r.y, r.width, r.height ) ;

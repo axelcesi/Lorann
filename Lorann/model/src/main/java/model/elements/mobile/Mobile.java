@@ -101,8 +101,9 @@ public abstract class Mobile extends Element implements IMobile{
 		//this.sprite = NULL;
 	}
 	
-	public void manageCollision(Direction direction)
+	public String manageCollision(String type)
 	{
+		return "not implemented";
 		
 	}
 	

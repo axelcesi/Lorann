@@ -16,14 +16,19 @@ public class Gate extends MotionlessElement
 		return open;
 	}
 	
-	public void Open() throws IOException
+	public void open() throws IOException
 	{
+		System.out.println("ok");
 		this.open = true;
-		this.setSprite("open_gate.png");
+		this.setSprite("gate_open.png");
 	}
 	
 	public String getType()
 	{
-		return "Gate";
+		if (this.isOpen() == true)
+			return "gateOpen";
+		if (this.isOpen() == false)
+			return "gateClosed";
+		return "";
 	}
 }

@@ -53,7 +53,7 @@ public abstract class Element implements IElement
 	
 	public String getType()
 	{
-		return " ";
+		return "";
 	}
 	
 	public void move(Direction direction)

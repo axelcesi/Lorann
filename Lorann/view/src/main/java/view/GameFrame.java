@@ -23,7 +23,7 @@ public class GameFrame extends JFrame implements KeyListener{
 	    this.setVisible(true);
 	    this.addKeyListener(this);
 	    
-	    this.setSize(640, 500);
+	    this.setSize(640, 430);
 	    this.setLocationRelativeTo(null);               
 	    
 	    

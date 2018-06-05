@@ -12,6 +12,6 @@ public class Purse extends MotionlessElement
 	
 	public String getType()
 	{
-		return "Purse";
+		return "purse";
 	}
 }

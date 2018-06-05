@@ -24,6 +24,35 @@ public class Hero extends Mobile implements Runnable{
 		return "Hero";
 	}
 	
+	public void tryMove()
+	{
+		
+	}
+	public String manageCollision(String type)
+	{
+		switch (type)
+		{
+		case "bone":
+			return "block";
+		case "void":
+			return "pass";
+		case "purse":
+			return "pick";
+		case "crystalBall":
+			return "pick&open";
+		case "gateClosed":
+			return "die";
+		case "gateOpen":
+			return "win";
+		case "spell":
+			return "pickspell";
+		case "monster":
+			return "die";
+		default:
+			return "type error";
+		}
+		
+	}
 	public Element launchSpell(Direction direction) throws IOException
 	{
 		Spell spell;
@@ -64,12 +93,10 @@ public class Hero extends Mobile implements Runnable{
 		}
 		return spell;
 		//Spell spell = new Spell(this.getPosition().getX(), this.getPosition().getY(), direction);
+
 	}
 	
-	public void manageCollision()
-	{
-		
-	}
+
 	public boolean isHero()
 	{
 		return true;

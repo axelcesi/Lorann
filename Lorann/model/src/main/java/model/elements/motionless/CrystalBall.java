@@ -12,6 +12,6 @@ public class CrystalBall extends MotionlessElement
 	
 	public String getType()
 	{
-		return "CrystalBall";
+		return "crystalBall";
 	}
 }

@@ -13,6 +13,6 @@ public class Bone extends MotionlessElement
 	
 	public String getType()
 	{
-		return "Bone";
+		return "bone";
 	}
 }
