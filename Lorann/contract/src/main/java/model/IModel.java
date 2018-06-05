@@ -10,6 +10,12 @@ import model.elements.mobile.Direction;
 import model.elements.mobile.IMobile;
 import model.elements.motionless.Gate;
 
+/**
+ * <h1>The Interface IModel</h1>
+ * @author AIGRET Nathanaël, DE CASTRO Axel, DOITTEE Anthime, JASSERAND Maxime
+ * @version 1.0
+ */
+
 public interface IModel {
 	public String getLevelLayout(int level)throws SQLException;
 	public void removeMobile(IElement mobile);

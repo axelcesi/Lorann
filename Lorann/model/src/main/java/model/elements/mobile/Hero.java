@@ -4,37 +4,57 @@ import java.io.IOException;
 
 import model.elements.Element;
 
+/**
+ * <h1>The Hero Class</h1>
+ * @author AIGRET Nathanaël, DE CASTRO Axel, DOITTEE Anthime, JASSERAND Maxime
+ * @version 1.0
+ */
 
 public class Hero extends Mobile implements Runnable{
 	
 	private static int TIME_SLEEP = 100;
 	private boolean hasSpell = true;
 	
+	/**
+	 * The constructor for the Hero Class, needs an x&y
+	 * @param x
+	 * @param y
+	 * @throws IOException
+	 */
 	public Hero(int x, int y) throws IOException
 	{
 		super("lorann_l.png", x, y, Direction.NOP);	
 	}
 	
+	/** Method used to reset spell when picked */
 	public void pickSpell()
 	{
 		this.hasSpell = true;
 	}
 	
+	/** Checks if the spell is available */
 	public boolean hasSpell()
 	{
 		return hasSpell;
 	}
 	
+	/** Getter */
 	public String getType()
 	{
 		return "hero";
 	}
 	
+	/** Boolean testing Method */
 	public boolean isHero()
 	{
 		return true;
 	}
 
+	/** 
+	 * Method used to manage collision between objects depending on types
+	 * @param type
+	 * @return stringMessage
+	 */
 	public String manageCollision(String type)
 	{
 		switch (type)
@@ -61,6 +81,12 @@ public class Hero extends Mobile implements Runnable{
 		
 	}
 	
+	/** 
+	 * Method used to launch Lorann's spell
+	 * @param direction
+	 * @return
+	 * @throws IOException
+	 */
 	public Element launchSpell(final Direction direction) throws IOException
     {
         Spell spell;
@@ -105,6 +131,7 @@ public class Hero extends Mobile implements Runnable{
         return spell;
     }
 		
+	/** Animates Loran */
 	public void run()
 	{
 		while (true)

@@ -2,16 +2,33 @@ package model.elements.mobile;
 
 import java.io.IOException;
 
+/**
+ * <h1>The Spell Class</h1>
+ * @author AIGRET Nathanaël, DE CASTRO Axel, DOITTEE Anthime, JASSERAND Maxime
+ * @version 1.0
+ */
+
 public class Spell extends Mobile implements Runnable{
 
 
 	private static final long TIME_SLEEP = 100;
 
+	/**
+	 * Constructor for the Class Spell, needs x&y and a direction
+	 * @param x
+	 * @param y
+	 * @param direction
+	 * @throws IOException
+	 */
 	Spell(int x, int y, Direction direction) throws IOException
 	{
 		super("fireball_1.png", x, y ,direction);
 	}
 	
+	/**
+	 * Manages collision for the spell
+	 * @param type (String)
+	 */
 	public String manageCollision(String type)
 	{
 		switch (type)
@@ -37,6 +54,10 @@ public class Spell extends Mobile implements Runnable{
 		}		
 	}
 	
+	/**
+	 * Manages the bounce of the spell
+	 * @param direction (type Direction)
+	 */
 	public void bounce(Direction direction)
 	{
 		switch (direction) {
@@ -69,6 +90,9 @@ public class Spell extends Mobile implements Runnable{
 		}
 	}
 	
+	/**
+	 * Animates the spell
+	 */
 	public void run()
 	{
 	 while (true)
@@ -125,12 +149,13 @@ public class Spell extends Mobile implements Runnable{
         }
 	}
 	
-	
+	/** Boolean testing method */
 	public boolean isSpell()
 	{
 		return true;
 	}
 	
+	/** Getter */
 	public String getType()
 	{
 		return "spell";

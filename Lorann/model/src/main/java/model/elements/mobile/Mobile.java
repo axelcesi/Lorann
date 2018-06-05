@@ -6,32 +6,52 @@ import java.io.IOException;
 import model.elements.Element;
 import model.elements.Position;
 
+/**
+ * <h1>The Mobile Class</h1>
+ * @author AIGRET Nathanaël, DE CASTRO Axel, DOITTEE Anthime, JASSERAND Maxime
+ * @version 1.0
+ */
 
 public abstract class Mobile extends Element implements IMobile{
 
 	private Direction direction;
 	
+	/**
+	 * Constructor for the Mobile Class
+	 * @param sprite
+	 * @param x
+	 * @param y
+	 * @param direction
+	 * @throws IOException
+	 */
 	Mobile(String sprite, int x, int y, Direction direction) throws IOException
 	{
 		super(sprite, x, y);
 		this.direction = direction;
 	}
 	
+	/** Getter */
 	public Direction getDirection()
 	{
 		return this.direction;
 	}
 	
+	/** Setter */
 	public void setDirection(Direction direction)
 	{
 		this.direction = direction;
 	}
 	
+	/** Getter */
 	public Position getPosition()
 	{
 		return this.position;
 	}
 	
+	/**
+	 * Depending on direction, makes move a mobile object
+	 * @param direction (type Direction)
+	 */
 	public void move(Direction direction)
 	{
 		switch (direction) {
@@ -70,6 +90,10 @@ public abstract class Mobile extends Element implements IMobile{
 		}
 	}
 	
+	/**
+	 * Method used for the bouncing of mobile objects
+	 * @param direction (type Direction)
+	 */
 	public void bounce(Direction direction)
 	{
 		switch (direction) {
@@ -102,6 +126,7 @@ public abstract class Mobile extends Element implements IMobile{
 		}
 	}
 	
+	/** Boolean testing method */
 	public boolean isMobile()
 	{
 		return true;
