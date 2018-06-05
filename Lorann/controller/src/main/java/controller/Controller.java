@@ -9,11 +9,12 @@ import model.elements.mobile.Direction;
 import model.elements.mobile.Hero;
 import model.elements.mobile.IMobile;
 import model.elements.mobile.Mobile;
+import view.IView;
 import view.View;
 
 public class Controller implements IOrderPerformer {
 	private static int TIME_SLEEP = 100;
-    private View  view;
+    private IView  view;
     private boolean	isGameOver	= false;
     private final IModel model;
 
@@ -160,6 +161,11 @@ public class Controller implements IOrderPerformer {
     		model.removeElement(element);
       		break;
     	case "win":
+    		model.removeElement(mobile);
+    		this.view.displayMessage("YOU WIN !");
+    		this.view.closeAll();
+    		
+    		
     		break;
     	default:
     		break;
@@ -209,5 +215,8 @@ public class Controller implements IOrderPerformer {
 			
 			this.model.setMobilesHavesMoved();
 		}
+	}
+	public void setView(final IView view) {
+		this.view = view;
 	}
 }

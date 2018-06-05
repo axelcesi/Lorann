@@ -13,7 +13,7 @@ public class Main {
 		Model model = new Model();
 		Controller controller = new Controller(model);
 		View view = new View(model, model, controller);
-		
+		controller.setView(view);
 		controller.play();
 		//Thread tView = new Thread(view);		
 		
