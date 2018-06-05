@@ -232,7 +232,7 @@ public final class Model extends Observable implements IModel {
     {
     	for (IElement element : this.getElements())
     	{
-   			if (element != null && element.getType() == "Hero")
+   			if (element != null && element.getType() == "hero")
     		{
     			return element;
     		}

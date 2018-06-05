@@ -31,8 +31,10 @@ public class Spell extends Mobile implements Runnable{
 			return "bounce";
 		case "gateOpen":
 			return "bounce";
+		case "hero":
+			return "spellpicked";
 		case "monster":
-			return "bounce";
+			return "kill";
 		default:
 			return "type error";
 		}		
@@ -82,7 +84,7 @@ public class Spell extends Mobile implements Runnable{
             }
             switch (this.getSprite().getImageName())
             {
-            case "fireball_1": 
+            case "fireball_1.png": 
                 try {
                     this.setSprite("fireball_2.png");
                 } catch (IOException e) {
@@ -134,6 +136,6 @@ public class Spell extends Mobile implements Runnable{
 	
 	public String getType()
 	{
-		return "Spell";
+		return "spell";
 	}
 }

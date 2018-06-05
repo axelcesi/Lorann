@@ -111,11 +111,25 @@ public class Controller implements IOrderPerformer {
     	case "game over":
     		model.removeElement(mobile);
     		this.isGameOver = true;
-    		System.out.println("ok");
+      		break;
+     	case "kill hero":
+    		model.removeElement(element);
+    		this.isGameOver = true;
       		break;
     	case "pickspell":
     		model.removeElement(element);
+    		mobile.move(direction);
+    		break;
+    	case "spellpicked":
+    		model.removeElement(mobile);
+    		break;
+    	case "kill":
+    		mobile.move(direction);
+    		model.removeElement(mobile);
+    		model.removeElement(element);
+      		break;
     	case "die":
+    		mobile.move(direction);
     		model.removeElement(mobile);
     		model.removeElement(element);
       		break;
@@ -159,7 +173,7 @@ public class Controller implements IOrderPerformer {
 			
 			for (IMobile mobile : this.model.getMobiles())
 			{
-				if (mobile.getType() == "Monster" || mobile.getType() == "Spell")
+				if (mobile.getType() == "monster" || mobile.getType() == "spell")
 				{
 					this.tryMove(mobile.getDirection(), mobile);
 				}

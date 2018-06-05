@@ -63,10 +63,12 @@ public class Monster extends Mobile{
 			return "bounce";
 		case "gateOpen":
 			return "bounce";
-		case "Spell":
+		case "spell":
 			return "die";
 		case "monster":
 			return "bounce";
+		case "hero":
+			return "kill hero";
 		default:
 			return "type error";
 		}
@@ -75,7 +77,7 @@ public class Monster extends Mobile{
 	
 	public String getType()
 	{
-		return "Monster";
+		return "monster";
 	}
 	public void move()
 	{

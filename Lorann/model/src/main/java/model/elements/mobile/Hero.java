@@ -27,7 +27,7 @@ public class Hero extends Mobile implements Runnable{
 	
 	public String getType()
 	{
-		return "Hero";
+		return "hero";
 	}
 	
 	public void tryMove()
@@ -50,9 +50,9 @@ public class Hero extends Mobile implements Runnable{
 			return "die";
 		case "gateOpen":
 			return "win";
-		case "Spell":
+		case "spell":
 			return "pickspell";
-		case "Monster":
+		case "monster":
 			return "game over";
 		default:
 			return "type error";

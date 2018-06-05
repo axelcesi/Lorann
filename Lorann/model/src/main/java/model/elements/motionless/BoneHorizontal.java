@@ -12,6 +12,6 @@ public class BoneHorizontal extends MotionlessElement
 	
 	public String getType()
 	{
-		return "BoneHorizontal";
+		return "bone";
 	}
 }

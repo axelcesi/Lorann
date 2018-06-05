@@ -22,7 +22,10 @@ public abstract class MobileFactory {
 
     public Element createSpell(int x, int y, Direction direction) throws IOException
     {
-        return new Spell(x, y, direction);
+        Spell spell = new Spell(x, y, direction);
+        Thread tSpell = new Thread(spell);
+        tSpell.start();
+        return spell;
     }
 
     public static Element createElement(String type, int x, int y, int monsterType) throws IOException
