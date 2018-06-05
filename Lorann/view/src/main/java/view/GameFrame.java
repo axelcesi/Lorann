@@ -5,7 +5,11 @@ import java.awt.event.KeyListener;
 import java.util.Observable;
 import javax.swing.JFrame;
 
-
+/**
+ * <h1>The GameFram Class</h1>
+ * @author AIGRET Nathanaël, DE CASTRO Axel, DOITTEE Anthime, JASSERAND Maxime
+ * @version 1.0
+ */
 
 public class GameFrame extends JFrame implements KeyListener{
 	
@@ -13,6 +17,12 @@ public class GameFrame extends JFrame implements KeyListener{
 	private final IEventPerformer eventPerformer;
 	//private GamePanel pan;
 	
+	/**
+	 * Constructor for the GameFrame Class
+	 * @param graphicsBuilder
+	 * @param observable
+	 * @param eventPerformer
+	 */
 	public GameFrame(final GraphicsBuilder graphicsBuilder, Observable observable, final IEventPerformer eventPerformer) 
 	{     
 		this.eventPerformer = eventPerformer;
@@ -34,19 +44,20 @@ public class GameFrame extends JFrame implements KeyListener{
 	    this.setVisible(true);	
 	} 
 	
+	/** AddS the pressed key to the object */
 	public void keyPressed(final KeyEvent keyEvent) {
 		this.eventPerformer.eventPerform(keyEvent);
 	}
 
+	/** Auto Generated stub */
 	@Override
 	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 
+	/** Auto Generated stub */
 	@Override
 	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
+
 	}
 }

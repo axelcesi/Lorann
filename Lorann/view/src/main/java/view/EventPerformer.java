@@ -7,13 +7,26 @@ import controller.IUserOrder;
 import controller.Order;
 import controller.UserOrder;
 
+/**
+ * <h1>The EventPerformer Class</h1>
+ * @author AIGRET Nathanaël, DE CASTRO Axel, DOITTEE Anthime, JASSERAND Maxime
+ * @version 1.0
+ */
+
 class EventPerformer implements IEventPerformer {
     private final IOrderPerformer orderPerformer;
 
+    /**
+     * Constructor for the EventPerformer Class
+     * @param orderPerformer
+     */
     public EventPerformer(final IOrderPerformer orderPerformer) {
         this.orderPerformer = orderPerformer;
     }
 
+    /**
+     * Analyses the keyCode
+     */
     public void eventPerform(final KeyEvent keyCode) {
         final IUserOrder userOrder = this.keyCodeToUserOrder(keyCode.getKeyCode());
         if (userOrder != null) {
@@ -21,6 +34,7 @@ class EventPerformer implements IEventPerformer {
         }
     }
 
+    /** Inputs keycode to the user */
     private IUserOrder keyCodeToUserOrder(final int keyCode) {
         IUserOrder userOrder;
         switch (keyCode) {
