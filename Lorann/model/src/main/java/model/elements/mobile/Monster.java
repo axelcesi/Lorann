@@ -2,11 +2,8 @@ package model.elements.mobile;
 
 import java.io.IOException;
 
-import model.elements.Position;
-import model.elements.Sprite;
-
 public class Monster extends Mobile{
-	private int type;
+	//private int type;
 	
 	Monster(int x, int y, int type) throws IOException
 	{
@@ -24,8 +21,18 @@ public class Monster extends Mobile{
 		
 	}
 	
+	public String getType()
+	{
+		return "Monster";
+	}
 	public void move()
 	{
 		
 	}
+	
+	public boolean isMonster()
+	{
+		return false;
+	}
+	
 }

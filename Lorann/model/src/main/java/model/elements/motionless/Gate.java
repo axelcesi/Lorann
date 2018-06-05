@@ -21,4 +21,9 @@ public class Gate extends MotionlessElement
 		this.open = true;
 		this.setSprite("open_gate.png");
 	}
+	
+	public String getType()
+	{
+		return "Gate";
+	}
 }

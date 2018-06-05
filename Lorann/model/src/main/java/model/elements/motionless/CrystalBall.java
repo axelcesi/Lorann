@@ -10,4 +10,8 @@ public class CrystalBall extends MotionlessElement
 		super("crystal_ball.png", x, y, Permeability.PENETRABLE);
 	}
 	
+	public String getType()
+	{
+		return "CrystalBall";
+	}
 }

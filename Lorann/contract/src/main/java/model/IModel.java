@@ -1,21 +1,22 @@
 package model;
 
 import java.awt.Image;
+import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
-
+import java.util.ArrayList;
+import model.elements.Element;
+import model.elements.IElement;
 import model.elements.mobile.IMobile;
 
-/**
- * <h1>The Interface IModel.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
 public interface IModel {
-
-     
-	IMobile getMobiles();
-
-	Image getImage(int i, int j);
+	public String getLevelLayout(int level)throws SQLException;
+	public void removeMobile(IElement mobile, int x, int y);
+	public void createMap() throws IOException, SQLException;
+	public ArrayList<Image> getImages();
+	//public Image getImage(int x, int y);
+	public ArrayList<IElement> getElements();
+	public void setMobilesHavesMoved();
+	public Object getMobiles();
+	public IElement getHero();
+	public void addElement(IElement element);
 }

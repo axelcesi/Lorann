@@ -3,9 +3,11 @@ package model.elements;
 import java.awt.Image;
 import java.io.IOException;
 
+import model.elements.mobile.Direction;
+
 public abstract class Element implements IElement 
 {
-	private Position position;
+	protected Position position;
 	private Sprite sprite;
 
 	
@@ -35,6 +37,10 @@ public abstract class Element implements IElement
 		return this.position;
 	}
 	
+	public boolean isMobile()
+	{
+		return false;
+	}
 	public void setPosition(Position position)
 	{
 		this.position = position;
@@ -43,5 +49,15 @@ public abstract class Element implements IElement
 	public boolean isHero()
 	{
 		return false;
+	}
+	
+	public String getType()
+	{
+		return " ";
+	}
+	
+	public void move(Direction direction)
+	{
+		
 	}
 }

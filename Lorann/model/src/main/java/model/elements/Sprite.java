@@ -16,7 +16,7 @@ public class Sprite {
 	{
 		this.imageName = imageName;
 		
-		this.image = ImageIO.read(new File("./sprite/" + this.imageName));
+		this.image = ImageIO.read(new File("C:\\Users\\Natanx\\git\\Lorann\\Lorann\\sprite\\" + this.imageName));
 		
 		this.ImageLoaded = true;
 		//System.out.println(imageName);

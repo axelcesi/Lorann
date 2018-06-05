@@ -10,4 +10,8 @@ public class Purse extends MotionlessElement
 		super("purse.png", x, y, Permeability.BLOCKING);
 	}
 	
+	public String getType()
+	{
+		return "Purse";
+	}
 }

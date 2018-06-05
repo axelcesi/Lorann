@@ -27,4 +27,9 @@ public abstract class MotionlessElement extends Element
 	{
 		this.permeability = permeability;
 	}
+	
+	public void move()
+	{
+		
+	}
 }

@@ -9,9 +9,9 @@ import java.sql.Statement;
 import com.mysql.cj.jdbc.CallableStatement;
 
 /**
- * <h1>The Class BoulderDashBDDConnector.</h1>
+ * <h1>The Class LorannBDDConnector.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author 
  * @version 1.0
  */
 final class LorannBDDConnector {
@@ -35,16 +35,16 @@ final class LorannBDDConnector {
     private Statement                      statement;
 
     /**
-     * Instantiates a new boulder dash BDD connector.
+     * Instantiates a new Lorann BDD connector.
      */
     LorannBDDConnector() {
         this.open();
     }
 
     /**
-     * Gets the single instance of BoulderDashBDDConnector.
+     * Gets the single instance of Lorann BDDConnector.
      *
-     * @return single instance of BoulderDashBDDConnector
+     * @return single instance of Lorann BDDConnector.
      */
     public static LorannBDDConnector getInstance() {
         if (instance == null) {
@@ -166,6 +166,12 @@ final class LorannBDDConnector {
         this.statement = statement;
     }
 
+    /**
+     * 
+     * @param level
+     * @return resultSet String
+     * @throws SQLException
+     */
     public String getResult(int level) throws SQLException
     {
     	final java.sql.CallableStatement callStatement = prepareCall("{call query_level(" + level + ")}");

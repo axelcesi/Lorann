@@ -4,23 +4,14 @@ public class Position {
 	
 	private int x;
 	private int y;
-	private int maxX;
-	private int maxY;
+	private int maxX = 1;
+	private int maxY = 1;
 	
-	Position(int x, int y, int maxX, int maxY)
-	{
-		this.x = x;
-		this.y = y;
-		this.maxX = maxX;
-		this.maxY = maxY;
-	}
-	
+
 	Position(int x, int y)
 	{
 		this.x = x;
 		this.y = y;
-		this.maxX = 200;
-		this.maxY = 200;
 	}
 	
 	Position(Position position)

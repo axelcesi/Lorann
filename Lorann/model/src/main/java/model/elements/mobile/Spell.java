@@ -23,5 +23,8 @@ public class Spell extends Mobile{
 		return true;
 	}
 	
-
+	public String getType()
+	{
+		return "Spell";
+	}
 }

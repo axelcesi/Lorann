@@ -9,5 +9,10 @@ public class Bone extends MotionlessElement
 	Bone(int x, int y) throws IOException
 	{
 		super("bone.png", x, y, Permeability.BLOCKING);
-	}	
+	}
+	
+	public String getType()
+	{
+		return "Bone";
+	}
 }

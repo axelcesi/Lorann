@@ -10,4 +10,8 @@ public class BoneHorizontal extends MotionlessElement
 		super("horizontal_bone.png", x, y, Permeability.BLOCKING);
 	}
 	
+	public String getType()
+	{
+		return "BoneHorizontal";
+	}
 }

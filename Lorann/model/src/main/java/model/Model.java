@@ -2,21 +2,20 @@ package model;
 
 import java.awt.Image;
 import java.io.IOException;
-
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.Observable;
 import model.elements.IElement;
+import model.elements.mobile.Mobile;
 import model.elements.mobile.MobileFactory;
 import model.elements.motionless.MotionlessElementFactory;
 
-public final class Model implements IModel {
+public final class Model extends Observable implements IModel {
 
-    private final IElement elements[][];
-
-    
+	private final ArrayList<IElement> elements;       
     public Model() throws IOException, SQLException 
     {
-    	elements = new IElement[12][20];
+    	elements = new ArrayList<IElement>();
     	createMap();
     }
 
@@ -30,7 +29,8 @@ public final class Model implements IModel {
 
     public void createMap() throws IOException, SQLException
     {
-    	String Layout = 
+    	String Layout =
+    			
     			".....O-------O......\n" + 
     			".....I.......I......\n" + 
     			".....I.......I......\n" + 
@@ -41,52 +41,52 @@ public final class Model implements IModel {
     			"O----OPO-O-OPO----O.\n" + 
     			".....I.......I......\n" + 
     			".....I...3...I......\n" + 
-    			".....I.......I......\n" + 
+    			".....I.......I......\n" +
     			".....O--O$O--O......\n";
     	
     	
-    	for (int i = 0; i < 12; i++)
+    	for (int y = 0; y < 12; y++)
     	{
-    		for (int j = 0 ; j < 20; j++)
+    		for (int x = 0 ; x < 20; x++)
     		{
     			//System.out.print(i*20 + "|" + j +":"+ Layout.charAt(i*21 + j));
-    			switch (Layout.charAt(i*21 + j))
+    			switch (Layout.charAt(y*21 + x))
     			{
     			case 'O' :
-    				this.elements[i][j] = MotionlessElementFactory.createElement("Bone", i, j);
+    				this.elements.add(MotionlessElementFactory.createElement("Bone", x*32, y*32));
     				break;
     			case '*' :
-    				this.elements[i][j] = MotionlessElementFactory.createElement("CrystalBall", i, j);
+    				this.elements.add(MotionlessElementFactory.createElement("CrystalBall", x*32, y*32));
     				break;
     			case '$' :
-    				this.elements[i][j] = MotionlessElementFactory.createElement("Gate", i, j);
+    				this.elements.add(MotionlessElementFactory.createElement("Gate", x*32, y*32));
     				break;
     			case '-' :
-    				this.elements[i][j] = MotionlessElementFactory.createElement("BoneHorizontal", i, j);
+    				this.elements.add(MotionlessElementFactory.createElement("BoneHorizontal", x*32, y*32));
     				break;
     			case '@' :
-    				this.elements[i][j] = MobileFactory.createElement("Hero", i, j ,0);
+    				this.elements.add(MobileFactory.createElement("Hero", x*32, y*32 ,0));
     				break;
     			case '1' :
-    				this.elements[i][j] = MobileFactory.createElement("Monster", i, j ,1);
+    				this.elements.add(MobileFactory.createElement("Monster", x*32, y*32 ,1));
     				break;
     			case '2' :
-    				this.elements[i][j] = MobileFactory.createElement("Monster", i, j ,2);
+    				this.elements.add(MobileFactory.createElement("Monster", x*32, y*32 ,2));
     				break;
     			case '3' :
-    				this.elements[i][j] = MobileFactory.createElement("Monster", i, j ,3);
+    				this.elements.add(MobileFactory.createElement("Monster", x*32, y*32 ,3));
     				break;
     			case '4' :
-    				this.elements[i][j] = MobileFactory.createElement("Monster", i, j ,4);
+    				this.elements.add(MobileFactory.createElement("Monster", x*32, y*32 ,4));
     				break;
     			case 'P' :
-    				this.elements[i][j] = MotionlessElementFactory.createElement("Purse", i, j);
+    				this.elements.add(MotionlessElementFactory.createElement("Purse", x*32, y*32));
     				break;
     			case 'I' :
-    				this.elements[i][j] = MotionlessElementFactory.createElement("BoneVertical", i, j);
+    				this.elements.add(MotionlessElementFactory.createElement("BoneVertical", x*32, y*32));
     				break;
     			case '.' :
-    				this.elements[i][j] = null;
+    				this.elements.add(null);
     				//System.out.println(".");
     				break;
     			}
@@ -94,9 +94,10 @@ public final class Model implements IModel {
     	}
     }
     
-    public void addMobile(IElement mobile, int x ,int y)
+    
+    public void addElement(IElement mobile)
     {
-    	//this.elements[i][j].add(mobile);
+    	this.elements.add(mobile);
     }
     
     public void removeMobile(IElement mobile, int x, int y)
@@ -104,37 +105,42 @@ public final class Model implements IModel {
     	
     }
     
-    public IElement[][] getElements()
+    public ArrayList<IElement> getElements()
     {
     	return this.elements;
     }
     
-    public IElement getElement(int x, int y)
+    /*public IElement getElement(int x, int y)
     {
     	return this.elements[x][y];
-    }
+    }*/
     
-    public Image[][] getImages()
-    {
-    	Image[][] img = new Image[12][20];
-    	for (int i = 0 ; i < 12; i++)
+    public ArrayList<IElement> getMobiles()
+	{
+    	final ArrayList<IElement> mobiles = new ArrayList<IElement>();
+    	for (IElement element : this.getElements())
     	{
-    		for (int j = 0; j < 20; j++)
-    		{
-    			if (this.elements[i][j] != null)
-    			{
-    				img[i][j] = this.elements[i][j].getImage();
-    			}
-    			else
-    			{
-    				img[i][j] = null;
-    			}
-    		}
+    		if (element.isMobile() == true)
+    			mobiles.add(element);
+    	}
+    	return mobiles;
+	}
+    
+    public ArrayList<Image> getImages()
+    {
+    	ArrayList<Image> img = new ArrayList<>();
+    	for (IElement element : this.getElements())
+    	{
+    		if (element != null)
+    			img.add(element.getImage());
+    		
+    		else
+    			img.addAll(null);
     	}
     	return img;
     }
     
-    public Image getImage(int x, int y)
+   /* public Image getImage(int x, int y)
     {
     Image[][] img = this.getImages();
     	if (img[x][y] != null)
@@ -145,20 +151,22 @@ public final class Model implements IModel {
     	{
     		return null;
     	}
-    }
+    }*/
     
     public IElement getHero()
     {
-    	for (int i = 0; i < 12; i ++)
+    	for (IElement element : this.getElements())
     	{
-    		for (int j = 0; j < 20; j++)
+   			if (element != null && element.getType() == "Hero")
     		{
-    			if (this.elements[i][j].isHero() == true)
-    			{
-    				return this.elements[i][j];
-    			}
+    			return element;
     		}
-    	}
+      	}
     	return null;
     }
+    
+    public void setMobilesHavesMoved() {
+		this.setChanged();
+		this.notifyObservers();
+	}
 }

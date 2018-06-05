@@ -7,7 +7,8 @@ import model.elements.Element;
 
 public class Hero extends Mobile implements Runnable{
 	
-	private boolean hasSpell;
+	private static int TIME_SLEEP = 100;
+	private boolean hasSpell = true;
 	public Hero(int x, int y) throws IOException
 	{
 		super("lorann_l.png", x, y, Direction.NOP);	
@@ -18,10 +19,15 @@ public class Hero extends Mobile implements Runnable{
 		
 	}
 	
+	public String getType()
+	{
+		return "Hero";
+	}
 	
 	public Element launchSpell(Direction direction) throws IOException
 	{
 		Spell spell;
+		this.hasSpell = false;
 		switch(direction)
 		{
 		case UP:
@@ -73,11 +79,73 @@ public class Hero extends Mobile implements Runnable{
 	{
 		while (true)
 		{
+			try {
+				Thread.sleep(TIME_SLEEP);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			switch (this.getDirection())
 			{
 			case UP :
 				try {
-					this.setSprite("lorann_up.png");
+					this.setSprite("lorann_u.png");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			case UPRIGHT :
+				try {
+					this.setSprite("lorann_ur.png");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			case RIGHT :
+				try {
+					this.setSprite("lorann_r.png");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			case DOWNRIGHT :
+				try {
+					this.setSprite("lorann_dr.png");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			case DOWN :
+				try {
+					this.setSprite("lorann_d.png");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			case DOWNLEFT :
+				try {
+					this.setSprite("lorann_dl.png");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			case LEFT :
+				try {
+					this.setSprite("lorann_.png");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			case UPLEFT :
+				try {
+					this.setSprite("lorann_ul.png");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -158,5 +226,4 @@ public class Hero extends Mobile implements Runnable{
 			}		
 		}		
 	}
-	
 }

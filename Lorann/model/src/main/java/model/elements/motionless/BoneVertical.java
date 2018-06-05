@@ -10,4 +10,8 @@ public class BoneVertical extends MotionlessElement
 		super("vertical_bone.png", x, y, Permeability.BLOCKING);
 	}
 	
+	public String getType()
+	{
+		return "BoneVertical";
+	}
 }
