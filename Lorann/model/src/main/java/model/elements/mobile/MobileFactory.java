@@ -3,7 +3,6 @@ package model.elements.mobile;
 import java.io.IOException;
 
 import model.elements.Element;
-import model.elements.IElement;
 
 public abstract class MobileFactory {
 

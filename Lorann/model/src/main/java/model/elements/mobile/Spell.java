@@ -2,9 +2,6 @@ package model.elements.mobile;
 
 import java.io.IOException;
 
-import model.elements.Position;
-import model.elements.Sprite;
-
 public class Spell extends Mobile implements Runnable{
 
 

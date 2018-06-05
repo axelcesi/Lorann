@@ -1,6 +1,5 @@
 package controller;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import model.IModel;
 import model.Model;
@@ -8,7 +7,6 @@ import model.elements.IElement;
 import model.elements.mobile.Direction;
 import model.elements.mobile.Hero;
 import model.elements.mobile.IMobile;
-import model.elements.mobile.Mobile;
 import view.IView;
 import view.View;
 

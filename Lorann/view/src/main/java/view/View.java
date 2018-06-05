@@ -6,13 +6,8 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import controller.IOrderPerformer;
 import model.Model;
-import model.IModel;
-//import gameframe.IEventPerformer;
-//import controller.IOrderPerformer;
-
 
 public class View implements Runnable, IView {
-	private Model model;
 	private final GraphicsBuilder graphicsBuilder;
 	private final EventPerformer eventPerformer;
 	private final Observable observable;

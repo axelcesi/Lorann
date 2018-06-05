@@ -32,11 +32,6 @@ public abstract class Mobile extends Element implements IMobile{
 		return this.position;
 	}
 	
-	public int getX()
-	{
-		return this.getPosition().getX();
-	}
-	
 	public void move(Direction direction)
 	{
 		switch (direction) {
@@ -111,32 +106,4 @@ public abstract class Mobile extends Element implements IMobile{
 	{
 		return true;
 	}
-	
-	public boolean isPlayer()
-	{
-		return false;
-	}
-	
-	public boolean isSpell()
-	{
-		return false;
-	}
-	
-	public boolean isMonster()
-	{
-		return false;
-	}
-	
-	public void die()
-	{
-		//this.position = NULL;
-		//this.sprite = NULL;
-	}
-	
-	public String manageCollision(String type)
-	{
-		return "not implemented";
-		
-	}
-	
 }

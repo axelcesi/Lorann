@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.Image;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,6 +14,7 @@ import model.elements.motionless.MotionlessElementFactory;
 
 public final class Model extends Observable implements IModel {
 
+	private static final int LEVEL = 0;
 	private final ArrayList<IElement> elements;       
     public Model() throws IOException, SQLException 
     {
@@ -25,13 +25,14 @@ public final class Model extends Observable implements IModel {
   
     public String getLevelLayout(int level) throws SQLException
     {
-    	//LorannBDDConnector connector = new LorannBDDConnector();
-       //	return connector.getResult(level);
-    	return("not ok");
+    	LorannBDDConnector connector = new LorannBDDConnector();
+       	return connector.getResult(level);
+    	//return("not ok");
     }
 
     public void createMap() throws IOException, SQLException
     {
+    	//String Layout = this.getLevelLayout(LEVEL);
     	String Layout =
     			
     			".....O-------O......\n" + 
@@ -198,34 +199,7 @@ public final class Model extends Observable implements IModel {
     	}
     	return mobiles;
 	}    
-    
-    public ArrayList<Image> getImages()
-    {
-    	ArrayList<Image> img = new ArrayList<>();
-    	for (IElement element : this.getElements())
-    	{
-    		if (element != null)
-    			img.add(element.getImage());
-    		
-    		else
-    			img.addAll(null);
-    	}
-    	return img;
-    }
-    
-   /* public Image getImage(int x, int y)
-    {
-    Image[][] img = this.getImages();
-    	if (img[x][y] != null)
-    	{
-        	return this.elements[x][y].getImage();
-    	}
-    	else
-    	{
-    		return null;
-    	}
-    }*/
-    
+        
     public IElement getHero()
     {
     	for (IElement element : this.getElements())

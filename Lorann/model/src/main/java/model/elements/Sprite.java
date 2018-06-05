@@ -10,16 +10,11 @@ public class Sprite {
 
 	private Image image;
 	private String imageName;
-	private boolean ImageLoaded = false;
 	
 	public Sprite(String imageName) throws IOException 
 	{
-		this.imageName = imageName;
-		
+		this.imageName = imageName;		
 		this.image = ImageIO.read(new File("./sprite/" + this.imageName));
-		
-		this.ImageLoaded = true;
-		//System.out.println(imageName);
 	}
 	
 	public Image getImage()
@@ -30,13 +25,11 @@ public class Sprite {
 	public void loadImage() throws IOException
 	{
 		this.image = ImageIO.read(new File("images/" + this.imageName));
-		this.ImageLoaded = true;
 	}
 	
 	public void setImage(Image image)
 	{
 		this.image = image;
-		this.ImageLoaded = true;
 	}
 	
 	public String getImageName()
@@ -48,19 +41,5 @@ public class Sprite {
 	{
 		this.imageName = imageName;
 	}
-	
-	public boolean isImageLoaded()
-	{
-		if (this.ImageLoaded = true) {
-			return true;
-				}
-		else {
-			return false;
-		}
-	}
-	
-	public void setImageLoaded(boolean imageLoaded)
-	{
-		this.ImageLoaded = imageLoaded;
-	}
 }
+	

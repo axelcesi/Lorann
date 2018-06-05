@@ -20,14 +20,6 @@ public class GamePanel extends JPanel implements Observer
 		this.graphicsBuilder = graphicsBuilder;
 	}
   
-	public void updates()
-	{
-		
-		this.repaint();
-		System.out.println("repaint");
-		
-	}
-	
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
 	}

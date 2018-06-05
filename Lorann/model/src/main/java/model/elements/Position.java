@@ -4,8 +4,7 @@ public class Position {
 	
 	private int x;
 	private int y;
-	private int maxX = 1;
-	private int maxY = 1;
+
 	
 
 	Position(int x, int y)
@@ -18,8 +17,6 @@ public class Position {
 	{
 		this.x = position.x;
 		this.y = position.y;
-		this.maxX = position.maxX;
-		this.maxY = position.maxY;
 	}
 	
 	public int getX()
@@ -40,15 +37,5 @@ public class Position {
 	public void setY(int y)
 	{
 		this.y = y;
-	}
-	
-	protected void setMaxX(int maxX)
-	{
-		this.maxX = maxX;
-	}
-	
-	protected void setMaxY(int maxY)
-	{
-		this.maxY = maxY;
 	}
 }

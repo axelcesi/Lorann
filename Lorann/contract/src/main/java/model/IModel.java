@@ -4,7 +4,6 @@ import java.awt.Image;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.elements.Element;
 import model.elements.IElement;
 import model.elements.Position;
 import model.elements.mobile.Direction;
@@ -16,7 +15,6 @@ public interface IModel {
 	public void removeMobile(IElement mobile);
 	public void createMap() throws IOException, SQLException;
 	public ArrayList<Image> getImages();
-	//public Image getImage(int x, int y);
 	public ArrayList<IElement> getElements();
 	public void setMobilesHavesMoved();
 	public ArrayList<IMobile> getMobiles();

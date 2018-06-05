@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.mysql.cj.jdbc.CallableStatement;
-
 /**
  * <h1>The Class LorannBDDConnector.</h1>
  *

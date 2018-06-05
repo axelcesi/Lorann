@@ -3,7 +3,7 @@ package model.elements.mobile;
 import java.io.IOException;
 
 public class Monster extends Mobile{
-	//private int type;
+	private int type;
 	
 	Monster(int x, int y, int type) throws IOException
 	{

@@ -15,18 +15,5 @@ public class Main {
 		View view = new View(model, model, controller);
 		controller.setView(view);
 		controller.play();
-		//Thread tView = new Thread(view);		
-		
-		//tView.start();
-
-		//GraphicsBuilder graphicBuilder = new GraphicsBuilder(model);
-		//Image img = model.getImage(2, 3);
-		
-		
-		
-		//Model game = new Model();
-		//System.exit(0);
-
 	}
-
 }

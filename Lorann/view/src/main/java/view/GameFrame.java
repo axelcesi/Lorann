@@ -3,10 +3,9 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Observable;
-
 import javax.swing.JFrame;
 
-import model.Model;
+
 
 public class GameFrame extends JFrame implements KeyListener{
 	

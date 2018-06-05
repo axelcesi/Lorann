@@ -15,11 +15,6 @@ public class Hero extends Mobile implements Runnable{
 		super("lorann_l.png", x, y, Direction.NOP);	
 	}
 	
-	public void die()
-	{
-		
-	}
-	
 	public void pickSpell()
 	{
 		this.hasSpell = true;
@@ -35,10 +30,11 @@ public class Hero extends Mobile implements Runnable{
 		return "hero";
 	}
 	
-	public void tryMove()
+	public boolean isHero()
 	{
-		
+		return true;
 	}
+
 	public String manageCollision(String type)
 	{
 		switch (type)
@@ -74,48 +70,41 @@ public class Hero extends Mobile implements Runnable{
         switch(this.getDirection())
         {
         case UP:
-            spell = new Spell(this.getPosition().getX(), this.getPosition().getY() + 32, Direction.DOWN);
+            spell = new Spell(this.getPosition().getX(), this.getPosition().getY(), Direction.DOWN);
             break;
         case RIGHT:
-            spell = new Spell(this.getPosition().getX() - 32, this.getPosition().getY(), Direction.LEFT);
+            spell = new Spell(this.getPosition().getX(), this.getPosition().getY(), Direction.LEFT);
             break;
         case DOWN:
-            spell = new Spell(this.getPosition().getX(), this.getPosition().getY() - 32, Direction.UP);
+            spell = new Spell(this.getPosition().getX(), this.getPosition().getY(), Direction.UP);
             break;
         case LEFT:
-            spell = new Spell(this.getPosition().getX() + 32, this.getPosition().getY(), Direction.RIGHT);
+            spell = new Spell(this.getPosition().getX(), this.getPosition().getY(), Direction.RIGHT);
             break;
         case UPRIGHT:
-            spell = new Spell(this.getPosition().getX() - 32, this.getPosition().getY() + 32, Direction.DOWNLEFT);
+            spell = new Spell(this.getPosition().getX(), this.getPosition().getY(), Direction.DOWNLEFT);
             break;
         case UPLEFT:
-            spell = new Spell(this.getPosition().getX() + 32, this.getPosition().getY() + 32, Direction.DOWNRIGHT);
+            spell = new Spell(this.getPosition().getX(), this.getPosition().getY(), Direction.DOWNRIGHT);
             break;
         case DOWNRIGHT:
-            spell = new Spell(this.getPosition().getX() - 32, this.getPosition().getY() - 32, Direction.UPLEFT);
+            spell = new Spell(this.getPosition().getX(), this.getPosition().getY(), Direction.UPLEFT);
             break;
         case DOWNLEFT:
-            spell = new Spell(this.getPosition().getX() + 32, this.getPosition().getY() - 32, Direction.UPRIGHT);
+            spell = new Spell(this.getPosition().getX(), this.getPosition().getY(), Direction.UPRIGHT);
             break;
         case NOP :
-            spell = new Spell(this.getPosition().getX() + 32, this.getPosition().getY(), Direction.RIGHT);
+            spell = new Spell(this.getPosition().getX(), this.getPosition().getY(), Direction.RIGHT);
             break;
         default:
-            spell = new Spell(this.getPosition().getX() + 32, this.getPosition().getY(), Direction.RIGHT);
+            spell = new Spell(this.getPosition().getX(), this.getPosition().getY(), Direction.RIGHT);
             break;
-
         }
         Thread tSpell = new Thread(spell);
         tSpell.start();
         return spell;
     }
-	
-
-	public boolean isHero()
-	{
-		return true;
-	}
-	
+		
 	public void run()
 	{
 		while (true)
