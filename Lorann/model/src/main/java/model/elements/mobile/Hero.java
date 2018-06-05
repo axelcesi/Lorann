@@ -22,7 +22,12 @@ public class Hero extends Mobile implements Runnable{
 	
 	public void pickSpell()
 	{
-		hasSpell = true;
+		this.hasSpell = true;
+	}
+	
+	public boolean hasSpell()
+	{
+		return hasSpell;
 	}
 	
 	public String getType()

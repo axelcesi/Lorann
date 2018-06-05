@@ -34,30 +34,47 @@ public class Controller implements IOrderPerformer {
                 switch (userOrder.getOrder()) {
                     case UP:
                         direction = Direction.UP;
+                        hero.setDirection(direction);
+                        tryMove(direction, hero);
                         break;
                     case RIGHT:
                         direction = Direction.RIGHT;
+                        hero.setDirection(direction);
+                        tryMove(direction, hero);
                         break;
                     case DOWN:
                         direction = Direction.DOWN;
+                        hero.setDirection(direction);
+                        tryMove(direction, hero);
                         break;
                     case LEFT:
                         direction = Direction.LEFT;
+                        hero.setDirection(direction);
+                        tryMove(direction, hero);
                         break;
                     case UPRIGHT:
                         direction = Direction.UPRIGHT;
+                        hero.setDirection(direction);
+                        tryMove(direction, hero);
                         break;
                     case UPLEFT:
                         direction = Direction.UPLEFT;
+                        hero.setDirection(direction);
+                        tryMove(direction, hero);
                         break;
                     case DOWNRIGHT:
                         direction = Direction.DOWNRIGHT;
+                        hero.setDirection(direction);
+                        tryMove(direction, hero);
                         break;
                     case DOWNLEFT:
                         direction = Direction.DOWNLEFT;
+                        hero.setDirection(direction);
+                        tryMove(direction, hero);
                         break;
                     case SHOOT:
                         try {
+                        	if (hero.hasSpell())
                             model.addElement(hero.launchSpell(hero.getDirection()));
                         } catch (final IOException e) {
                             e.printStackTrace();
@@ -70,8 +87,7 @@ public class Controller implements IOrderPerformer {
                         direction = Direction.NOP;
                         break;
                 }
-                hero.setDirection(direction);
-                tryMove(direction, hero);
+
 
             }
         }
@@ -83,6 +99,8 @@ public class Controller implements IOrderPerformer {
     	if (element != null)
     		type = element.getType();
     	else type = "void";
+    	
+    	Hero hero;
     	
     	switch (mobile.manageCollision(type))
     	{
@@ -117,18 +135,26 @@ public class Controller implements IOrderPerformer {
     		this.isGameOver = true;
       		break;
     	case "pickspell":
+    		hero = (Hero) this.model.getHero();
+    		hero.pickSpell();
     		model.removeElement(element);
     		mobile.move(direction);
     		break;
     	case "spellpicked":
+    		hero = (Hero) this.model.getHero();
+    		hero.pickSpell();
     		model.removeElement(mobile);
     		break;
     	case "kill":
+    		hero = (Hero) this.model.getHero();
+    		hero.pickSpell();
     		mobile.move(direction);
     		model.removeElement(mobile);
     		model.removeElement(element);
       		break;
     	case "die":
+    		hero = (Hero) this.model.getHero();
+    		hero.pickSpell();
     		mobile.move(direction);
     		model.removeElement(mobile);
     		model.removeElement(element);
@@ -183,106 +209,5 @@ public class Controller implements IOrderPerformer {
 			
 			this.model.setMobilesHavesMoved();
 		}
-			/*
-			for(int i = 0; i < 12; i++)
-			{
-				for (int j = 0; j < 20; j++)
-				{
-					if (mobiles[i][j].isMobile() == true)
-					{
-						mobiles[i][j].move();
-					}
-				}
-			}*/
-			
-		
-	
-			
 	}
-/*
-			//final Element[][] elements = new Elements[]();
-			for (final Element mobile : this.model.getElement()) {
-				initialMobiles.add(mobile);
-			}
-			for (final IMobile mobile : initialMobiles) {
-				mobile.move();
-				if (mobile.isSpell()) {
-					this.manageCollision(mobile);
-				}
-			}
-			this.model.setMobilesHavesMoved();*/
-
-   /* private void lauchSpell(final int player) throws IOException {
-		final IMobile lorran = this.model.getMobileByPlayer(player);
-		if (lorran != null) {
-			final Position position = new Position(lorran.getPosition().getX() + ((lorran.getWidth() - Spell.getWidthWithADirection(lorran.getDirection())) / 2),
-					lorran.getPosition().getY() + ((lorran.getHeight() - Spell.getHeightWithADirection(lorran.getDirection())) / 2));
-			this.model.addMobile(new Spell(lorran.getDirection(), position));
-			switch (lorran.getDirection()) {
-				case UP:
-					position.setY(position.getY() - lorran.getHeight() - lorran.getSpeed());
-					break;
-				case RIGHT:
-					position.setX(position.getX() + lorran.getWidth() + lorran.getSpeed());
-					break;
-				case DOWN:
-					position.setY(position.getY() + lorran.getHeight() + lorran.getSpeed());
-					break;
-				case LEFT:
-					position.setX(position.getX() - lorran.getWidth() - lorran.getSpeed());
-					break;
-				default:
-					break;
-			}
-		}
-	}*/
-    
-   /* private boolean isSpellOnMobile(final IMobile mobile, final IMobile spell) {
-		if (((spell.getPosition().getX() / spell.getWidth()) >= (mobile.getPosition().getX() / spell.getWidth()))
-				&& ((spell.getPosition().getX() / spell.getWidth()) <= ((mobile.getPosition().getX() + mobile.getWidth()) / spell.getWidth()))) {
-			if (((spell.getPosition().getY() / spell.getHeight()) >= (mobile.getPosition().getY() / weapon.getHeight()))
-					&& ((spell.getPosition().getY() / spell.getHeight()) <= ((mobile.getPosition().getY() + mobile.getHeight()) / spell.getHeight()))) {
-				return true;
-			}
-		}
-		return false;
-	}
-    
-   /* private void manageCollision(final IMobile spell) {
-		final ArrayList<IMobile> target = new ArrayList<IMobile>();
-		boolean isTargetHit = false;
-
-		for (final IMobile mobile : this.model.getMobiles()) {
-			if (this.isSpellOnMobile(mobile, spell)) {
-				target.add(mobile);
-			}
-		}
-		for (final IMobile mobile : target) {
-		)	isTargetHit = isTargetHit || mobile.hit();
-		}
-		if (isTargetHit) {
-			this.model.removeMobile(spell);
-			this.isGameOver = true;
-		}
-	}*/
-    /**
-     * Gets the view.
-     *
-     * @return the view
-     */
-    /*public IView getView() {
-        return this.viewSysteme;
-    }
-
-    /**
-     * Gets the model.
-     *
-     * @return the model
-     */
-   /* public IModel getModel() {
-        return this.model;
-    }
-    public void setViewSystem(final IView viewSysteme) {
-		this.viewSysteme = viewSysteme;
-	}*/
 }

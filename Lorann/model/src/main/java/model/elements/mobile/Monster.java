@@ -86,7 +86,7 @@ public class Monster extends Mobile{
 	
 	public boolean isMonster()
 	{
-		return false;
+		return true;
 	}
 	
 }

@@ -52,7 +52,6 @@ public final class Model extends Observable implements IModel {
     	{
     		for (int x = 0 ; x < 20; x++)
     		{
-    			//System.out.print(i*20 + "|" + j +":"+ Layout.charAt(i*21 + j));
     			switch (Layout.charAt(y*21 + x))
     			{
     			case 'O' :
@@ -90,7 +89,6 @@ public final class Model extends Observable implements IModel {
     				break;
     			case '.' :
     				this.elements.add(null);
-    				//System.out.println(".");
     				break;
     			}
     		}
