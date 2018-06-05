@@ -18,7 +18,6 @@ public class Gate extends MotionlessElement
 	
 	public void open() throws IOException
 	{
-		System.out.println("ok");
 		this.open = true;
 		this.setSprite("gate_open.png");
 	}

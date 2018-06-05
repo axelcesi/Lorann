@@ -12,10 +12,8 @@ public interface IModel {
 	public String getLevelLayout(int level)throws SQLException;
 	public void createMap() throws IOException, SQLException;
 	public ArrayList<Image> getImages();
-	//public Image getImage(int x, int y);
 	public ArrayList<IElement> getElements();
 	public void setMobilesHavesMoved();
-	public Object getMobiles();
 	public IElement getHero();
 	public void addElement(IElement element);
 }

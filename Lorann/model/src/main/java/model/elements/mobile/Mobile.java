@@ -75,6 +75,38 @@ public abstract class Mobile extends Element implements IMobile{
 		}
 	}
 	
+	public void bounce(Direction direction)
+	{
+		switch (direction) {
+		case UP:
+			this.setDirection(Direction.DOWN);
+			break;
+		case RIGHT:
+			this.setDirection(Direction.LEFT);
+			break;
+		case DOWN:
+			this.setDirection(Direction.UP);
+			break;
+		case LEFT:
+			this.setDirection(Direction.RIGHT);
+			break;
+		case UPRIGHT:
+			this.setDirection(Direction.DOWNLEFT);
+			break;
+		case UPLEFT:
+			this.setDirection(Direction.DOWNRIGHT);
+			break;
+		case DOWNRIGHT:
+			this.setDirection(Direction.UPLEFT);
+			break;
+		case DOWNLEFT:
+			this.setDirection(Direction.UPRIGHT);
+			break;
+		default:
+			break;
+		}
+	}
+	
 	public boolean isMobile()
 	{
 		return true;

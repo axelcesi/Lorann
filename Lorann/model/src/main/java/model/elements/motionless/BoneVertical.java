@@ -12,6 +12,6 @@ public class BoneVertical extends MotionlessElement
 	
 	public String getType()
 	{
-		return "BoneVertical";
+		return "bone";
 	}
 }

@@ -19,7 +19,7 @@ public interface IModel {
 	//public Image getImage(int x, int y);
 	public ArrayList<IElement> getElements();
 	public void setMobilesHavesMoved();
-	public Object getMobiles();
+	public ArrayList<IMobile> getMobiles();
 	public IElement getHero();
 	public void addElement(IElement element);
 	public IElement getNextElement(Position position, Direction direction);

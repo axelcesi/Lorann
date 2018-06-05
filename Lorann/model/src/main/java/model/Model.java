@@ -8,7 +8,7 @@ import java.util.Observable;
 import model.elements.IElement;
 import model.elements.Position;
 import model.elements.mobile.Direction;
-import model.elements.mobile.Mobile;
+import model.elements.mobile.IMobile;
 import model.elements.mobile.MobileFactory;
 import model.elements.motionless.Gate;
 import model.elements.motionless.MotionlessElementFactory;
@@ -39,8 +39,8 @@ public final class Model extends Observable implements IModel {
     			".....I.......I......\n" + 
     			".....I...@...I......\n" + 
     			"O----O-OPOPO-O----O.\n" + 
-    			"I....1.......2....I.\n" + 
-    			"I................*I.\n" + 
+    			"I............2....I.\n" + 
+    			"I...............1*I.\n" + 
     			"O----OPO-O-OPO----O.\n" + 
     			".....I.......I......\n" + 
     			".....I...3...I......\n" + 
@@ -189,23 +189,17 @@ public final class Model extends Observable implements IModel {
     	}
     	return null;
     }
-    /*public IElement getElement(int x, int y)
-    {
-    	return this.elements[x][y];
-    }*/
-    
-    public ArrayList<IElement> getMobiles()
+
+    public ArrayList<IMobile> getMobiles()
 	{
-    	final ArrayList<IElement> mobiles = new ArrayList<IElement>();
+    	final ArrayList<IMobile> mobiles = new ArrayList<>();
     	for (IElement element : this.getElements())
     	{
-    		if (element.isMobile() == true)
-    			mobiles.add(element);
+    		if (element != null && element.isMobile() == true)
+    			mobiles.add((IMobile) element);
     	}
     	return mobiles;
-	}
-    
-    
+	}    
     
     public ArrayList<Image> getImages()
     {

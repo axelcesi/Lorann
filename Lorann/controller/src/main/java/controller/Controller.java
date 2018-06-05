@@ -1,17 +1,18 @@
 package controller;
 import java.io.IOException;
-
+import java.util.ArrayList;
 
 import model.IModel;
 import model.Model;
 import model.elements.IElement;
 import model.elements.mobile.Direction;
 import model.elements.mobile.Hero;
+import model.elements.mobile.IMobile;
 import model.elements.mobile.Mobile;
 import view.View;
 
 public class Controller implements IOrderPerformer {
-	private static int TIME_SLEEP = 30;
+	private static int TIME_SLEEP = 100;
     private View  view;
     private boolean	isGameOver	= false;
     private final IModel model;
@@ -69,13 +70,13 @@ public class Controller implements IOrderPerformer {
                         direction = Direction.NOP;
                         break;
                 }
-                //hero.setDirection(direction);
+                hero.setDirection(direction);
                 tryMove(direction, hero);
 
             }
         }
 
-    private void tryMove(Direction direction, Mobile mobile) 
+    private void tryMove(Direction direction, IMobile mobile) 
     {
     	IElement element = this.model.getNextElement(mobile.getPosition(),direction);
     	String type;
@@ -104,9 +105,21 @@ public class Controller implements IOrderPerformer {
 				e.printStackTrace();
 			}
     		break;
+    	case "bounce":
+    		mobile.bounce(direction);
+    		break;
+    	case "game over":
+    		model.removeElement(mobile);
+    		this.isGameOver = true;
+    		System.out.println("ok");
+      		break;
+    	case "pickspell":
+    		model.removeElement(element);
     	case "die":
-    		//mobile.die();
-    		this.isGameOver=true;
+    		model.removeElement(mobile);
+    		model.removeElement(element);
+      		break;
+    	case "win":
     		break;
     	default:
     		break;
@@ -131,8 +144,10 @@ public class Controller implements IOrderPerformer {
 
 	private void gameLoop() {
 		
+		
 		while(isGameOver == false)
 		{
+			//this.model.setMobilesHavesMoved();
 			try {
 				Thread.sleep(TIME_SLEEP);
 			} catch (final InterruptedException ex) {
@@ -140,13 +155,18 @@ public class Controller implements IOrderPerformer {
 			}
 			//System.out.println("loop");
 			
-			/*//ArrayList<IElement> mobiles = new ArrayList<IElement>();
-			for (IElement mobile : this.model.getElements())
+
+			
+			for (IMobile mobile : this.model.getMobiles())
 			{
-				if (mobile.isMobile() == true)
-					mobile.move();
+				if (mobile.getType() == "Monster" || mobile.getType() == "Spell")
+				{
+					this.tryMove(mobile.getDirection(), mobile);
+				}
+				//mobile.setDirection(Direction.LEFT);
+				//this.tryMove(mobile.getDirection(), mobile);
 			}
-			*/
+			
 			this.model.setMobilesHavesMoved();
 		}
 			/*

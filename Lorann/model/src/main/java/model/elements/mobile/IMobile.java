@@ -19,4 +19,10 @@ public interface IMobile extends IElement{
 	
 	public boolean isPlayer();
 
+	public String manageCollision(String type);
+
+	public void die();
+
+	public void bounce(Direction direction);
+
 }
