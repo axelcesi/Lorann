@@ -12,24 +12,44 @@ import model.elements.mobile.MobileFactory;
 import model.elements.motionless.Gate;
 import model.elements.motionless.MotionlessElementFactory;
 
+/**
+ * <h1>The Model Class</h1>
+ * @author AIGRET Nathanaël, DE CASTRO Axel, DOITTEE Anthime, JASSERAND Maxime
+ * @version 1.0
+ */
+
 public final class Model extends Observable implements IModel {
 
 	private static final int LEVEL = 0;
 	private final ArrayList<IElement> elements;       
-    public Model() throws IOException, SQLException 
+    
+	/**
+	 * Constructor for the Model Class
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public Model() throws IOException, SQLException 
     {
     	elements = new ArrayList<IElement>();
     	createMap();
     }
 
-  
+	/**
+	 * Method used to get the level's String from the DataBase
+	 * @param int level
+	 * @return String 
+	 */
     public String getLevelLayout(int level) throws SQLException
     {
     	LorannBDDConnector connector = new LorannBDDConnector();
        	return connector.getResult(level);
     	//return("not ok");
     }
-
+    
+    /**
+     * @throws IOException
+     * @throws SQLException
+     */
     public void createMap() throws IOException, SQLException
     {
     	//String Layout = this.getLevelLayout(LEVEL);
@@ -96,23 +116,26 @@ public final class Model extends Observable implements IModel {
     	}
     }
     
-    
+    /** Adds a mobile Element to the map */
     public void addElement(IElement mobile)
     {
     	this.elements.add(mobile);
     }
     
+    /** Removes an Element from the map */
     public void removeElement(IElement element)
     {
     	int ind = elements.indexOf(element);
     	this.elements.remove(ind);
     }
     
+    /** Getter */
     public ArrayList<IElement> getElements()
     {
     	return this.elements;
     }
     
+    /** Getter */
     public IElement getUniqueElement(String type)
     {
     	for (IElement element : this.getElements())
@@ -125,6 +148,7 @@ public final class Model extends Observable implements IModel {
     	return null;
     }
     
+    /** Getter */
     public IElement getNextElement(Position position, Direction direction)
     {
     	for (IElement element : this.getElements())
@@ -189,6 +213,7 @@ public final class Model extends Observable implements IModel {
     	return null;
     }
 
+    /** Getter */
     public ArrayList<IMobile> getMobiles()
 	{
     	final ArrayList<IMobile> mobiles = new ArrayList<>();
@@ -199,7 +224,8 @@ public final class Model extends Observable implements IModel {
     	}
     	return mobiles;
 	}    
-        
+     
+    /** Getter */
     public IElement getHero()
     {
     	for (IElement element : this.getElements())
@@ -212,6 +238,7 @@ public final class Model extends Observable implements IModel {
     	return null;
     }
     
+    /** Getter */
     public Gate getGate()
     {
     	for (IElement element : this.getElements())
@@ -224,6 +251,10 @@ public final class Model extends Observable implements IModel {
     	return null;
     }
     
+    /**
+     * Setter
+     * @deprecated
+     */
     public void setMobilesHavesMoved() {
 		this.setChanged();
 		this.notifyObservers();

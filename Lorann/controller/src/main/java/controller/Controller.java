@@ -10,20 +10,35 @@ import model.elements.mobile.IMobile;
 import view.IView;
 import view.View;
 
+/**
+ * <h1>The Controller Class</h1>
+ * @author AIGRET Nathanaël, DE CASTRO Axel, DOITTEE Anthime, JASSERAND Maxime
+ * @version 1.0
+ */
+
 public class Controller implements IOrderPerformer {
 	private static int TIME_SLEEP = 100;
     private IView  view;
     private boolean	isGameOver	= false;
     private final IModel model;
 
+    /**
+     * Constructor for the Controller Class
+     * @param model
+     */
     public Controller(final Model model) {
         this.model = model;
     }
     
+    /** Setter */
     public void setView(final View view) {
 		this.view = view;
 	}
-    
+   
+    /** 
+     * Used to determine with an input the adequate move
+     * @param IUserOrder type object
+     */
     public void orderPerform(final IUserOrder userOrder) {
         if (userOrder != null) {
             final Hero hero = (Hero) this.model.getHero();
@@ -91,6 +106,11 @@ public class Controller implements IOrderPerformer {
             }
         }
 
+    /** 
+     * Method used to determine if the block in the direction is passable or not
+     * @param direction
+     * @param mobile
+     */
     private void tryMove(Direction direction, IMobile mobile) 
     {
     	IElement element = this.model.getNextElement(mobile.getPosition(),direction);
@@ -170,25 +190,20 @@ public class Controller implements IOrderPerformer {
     	}		
 	}
 
-	/**
-     * Start.
-     *
-     * @throws SQLException
-     *             the SQL exception
-     */
+	/** Calls in the play method for the object */
    public void start()  {
         this.play();
     }
    
+   /** The play method */
     public void play() {
 		this.gameLoop();
 		this.view.displayMessage("Game Over !");
 		this.view.closeAll();
 	}
 
+    /** Methode used to start the game */
 	private void gameLoop() {
-		
-		
 		while(isGameOver == false)
 		{
 			//this.model.setMobilesHavesMoved();
@@ -214,6 +229,8 @@ public class Controller implements IOrderPerformer {
 			this.model.setMobilesHavesMoved();
 		}
 	}
+	
+	/** Setter */
 	public void setView(final IView view) {
 		this.view = view;
 	}

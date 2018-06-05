@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * <h1>The Class LorannBDDConnector.</h1>
- *
- * @author 
+ * <h1>The Lorann BDDConnector</h1>
+ * @author AIGRET Nathanaël, DE CASTRO Axel, DOITTEE Anthime, JASSERAND Maxime
  * @version 1.0
  */
+
 final class LorannBDDConnector {
 
     /** The instance. */
@@ -32,9 +32,7 @@ final class LorannBDDConnector {
     /** The statement. */
     private Statement                      statement;
 
-    /**
-     * Instantiates a new Lorann BDD connector.
-     */
+    /** Instantiates a new Lorann BDD connector. */
     LorannBDDConnector() {
         this.open();
     }
