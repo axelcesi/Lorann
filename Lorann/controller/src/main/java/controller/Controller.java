@@ -107,7 +107,7 @@ public class Controller implements IOrderPerformer {
         }
 
     /** 
-     * Method used to determine if the block in the direction is passable or not
+     * Method used to determine what to do depending on the type of element encountered
      * @param direction
      * @param mobile
      */
@@ -178,12 +178,14 @@ public class Controller implements IOrderPerformer {
     		model.removeElement(mobile);
     		model.removeElement(element);
       		break;
+    	case "trap":
+    		model.removeElement(mobile);
+    		this.isGameOver = true;
+    		break;
     	case "win":
     		model.removeElement(mobile);
     		this.view.displayMessage("YOU WIN !");
-    		this.view.closeAll();
-    		
-    		
+    		this.view.closeAll();    		
     		break;
     	default:
     		break;
@@ -202,7 +204,7 @@ public class Controller implements IOrderPerformer {
 		this.view.closeAll();
 	}
 
-    /** Methode used to start the game */
+    /** Method used to start the game */
 	private void gameLoop() {
 		while(isGameOver == false)
 		{

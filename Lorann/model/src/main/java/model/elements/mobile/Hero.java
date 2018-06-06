@@ -68,7 +68,7 @@ public class Hero extends Mobile implements Runnable{
 		case "crystalBall":
 			return "pick&open";
 		case "gateClosed":
-			return "die";
+			return "trap";
 		case "gateOpen":
 			return "win";
 		case "spell":
