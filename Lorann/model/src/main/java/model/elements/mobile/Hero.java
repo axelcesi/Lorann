@@ -26,18 +26,6 @@ public class Hero extends Mobile implements Runnable{
 		super("lorann_l.png", x, y, Direction.NOP);	
 	}
 	
-	/** Method used to reset spell when picked */
-	public void pickSpell()
-	{
-		this.hasSpell = true;
-	}
-	
-	/** Checks if the spell is available */
-	public boolean hasSpell()
-	{
-		return hasSpell;
-	}
-	
 	/** Getter */
 	public String getType()
 	{
@@ -50,6 +38,18 @@ public class Hero extends Mobile implements Runnable{
 		return true;
 	}
 
+	/** Method used to reset spell when picked */
+	public void pickSpell()
+	{
+		this.hasSpell = true;
+	}
+	
+	/** Checks if the spell is available */
+	public boolean hasSpell()
+	{
+		return hasSpell;
+	}
+	
 	/** 
 	 * Method used to manage collision between objects depending on types
 	 * @param type

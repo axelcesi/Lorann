@@ -20,7 +20,7 @@ import model.elements.motionless.MotionlessElementFactory;
 
 public final class Model extends Observable implements IModel {
 
-	private static final int LEVEL = 0;
+	private static final int LEVEL = 1;
 	private final ArrayList<IElement> elements;       
     
 	/**
@@ -41,9 +41,9 @@ public final class Model extends Observable implements IModel {
 	 */
     public String getLevelLayout(int level) throws SQLException
     {
-    	LorannBDDConnector connector = new LorannBDDConnector();
-       	return connector.getResult(level);
-    	//return("not ok");
+    	//LorannBDDConnector connector = new LorannBDDConnector();
+       	//return connector.getResult(level);
+    	return("not ok");
     }
     
     /**
@@ -56,7 +56,7 @@ public final class Model extends Observable implements IModel {
     	String Layout =
     			
     			".....O-------O......\n" + 
-    			".....I.......I......\n" + 
+    			".....I...4...I......\n" + 
     			".....I.......I......\n" + 
     			".....I...@...I......\n" + 
     			"O----O-OPOPO-O----O.\n" + 

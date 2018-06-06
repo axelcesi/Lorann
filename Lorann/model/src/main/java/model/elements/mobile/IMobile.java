@@ -19,8 +19,6 @@ public interface IMobile extends IElement{
 	
 	public Position getPosition();
 	
-	public Image getImage();
-	
 	public void move(Direction direction);
 	
 	public String manageCollision(String type);

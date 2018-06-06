@@ -24,7 +24,7 @@ final class LorannBDDConnector {
     private static String                  password = "java";
 
     /** The url. */
-    private static String                  url      = "jdbc:mysql://localhost/lorann?useSSL=false&serverTimezone=UTC";
+    private static String                  url      = "jdbc:mysql://10.145.128.29/lorann?useSSL=false&serverTimezone=UTC";
 
     /** The connection. */
     private Connection                     connection;

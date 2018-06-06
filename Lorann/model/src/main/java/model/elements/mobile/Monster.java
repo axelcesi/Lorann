@@ -20,16 +20,27 @@ public class Monster extends Mobile{
 	 */
 	Monster(int x, int y, int type) throws IOException
 	{
-		super("monster_1.png", x, y, Direction.LEFT);
-		this.setSprite("monster_"+type+".png");
-	}
-	
-	/** Not used or deprecated
-	 * @deprecated
-	 */
-	public void die()
-	{
-		
+		super("monster_1.png", x, y, Direction.NOP);
+		switch (type)
+		{
+		case 1:			
+			this.setSprite("monster_"+type+".png");
+			this.setDirection(Direction.LEFT);
+			break;
+		case 2:
+			this.setSprite("monster_"+type+".png");
+			this.setDirection(Direction.RIGHT);
+			break;
+		case 3:
+			this.setSprite("monster_"+type+".png");
+			this.setDirection(Direction.UP);
+			break;
+		case 4:
+			this.setSprite("monster_"+type+".png");
+			this.setDirection(Direction.UPLEFT);
+			break;
+			
+		}
 	}
 	
 	/**
@@ -52,10 +63,10 @@ public class Monster extends Mobile{
 			this.setDirection(Direction.RIGHT);
 			break;
 		case UPRIGHT:
-			this.setDirection(Direction.DOWNLEFT);
+			this.setDirection(Direction.DOWNRIGHT);
 			break;
 		case UPLEFT:
-			this.setDirection(Direction.DOWNRIGHT);
+			this.setDirection(Direction.DOWNLEFT);
 			break;
 		case DOWNRIGHT:
 			this.setDirection(Direction.UPLEFT);
@@ -104,14 +115,6 @@ public class Monster extends Mobile{
 	public String getType()
 	{
 		return "monster";
-	}
-	
-	/** Not used or deprecated
-	 * @deprecated
-	 */
-	public void move()
-	{
-		
 	}
 	
 	/** Boolean testing method */
