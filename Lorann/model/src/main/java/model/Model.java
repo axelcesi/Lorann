@@ -20,7 +20,7 @@ import model.elements.motionless.MotionlessElementFactory;
 
 public final class Model extends Observable implements IModel {
 
-	private static final int LEVEL = 1;
+	private static final int LEVEL = 6;
 	private final ArrayList<IElement> elements;       
     
 	/**
@@ -41,9 +41,9 @@ public final class Model extends Observable implements IModel {
 	 */
     public String getLevelLayout(int level) throws SQLException
     {
-    	//LorannBDDConnector connector = new LorannBDDConnector();
-       	//return connector.getResult(level);
-    	return("not ok");
+    	LorannBDDConnector connector = new LorannBDDConnector();
+       	return connector.getResult(level);
+    	//return("not ok");
     }
     
     /**
@@ -52,8 +52,8 @@ public final class Model extends Observable implements IModel {
      */
     public void createMap() throws IOException, SQLException
     {
-    	//String Layout = this.getLevelLayout(LEVEL);
-    	String Layout =
+    	String Layout = this.getLevelLayout(LEVEL);
+    	/*String Layout =
     			
     			".....O-------O......\n" + 
     			".....I...4...I......\n" + 
@@ -66,14 +66,14 @@ public final class Model extends Observable implements IModel {
     			".....I.......I......\n" + 
     			".....I...3...I......\n" + 
     			".....I.......I......\n" +
-    			".....O--O$O--O......\n";
+    			".....O--O$O--O......\n";*/
     	
     	
     	for (int y = 0; y < 12; y++)
     	{
     		for (int x = 0 ; x < 20; x++)
     		{
-    			switch (Layout.charAt(y*21 + x))
+    			switch (Layout.charAt(y*22 + x))
     			{
     			case 'O' :
     				this.elements.add(MotionlessElementFactory.createElement("Bone", x*32, y*32));

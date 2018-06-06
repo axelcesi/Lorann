@@ -24,7 +24,7 @@ final class LorannBDDConnector {
     private static String                  password = "java";
 
     /** The url. */
-    private static String                  url      = "jdbc:mysql://10.145.128.29/lorann?useSSL=false&serverTimezone=UTC";
+    private static String                  url      = "jdbc:mysql://localhost/lorann?useSSL=false&serverTimezone=UTC";
 
     /** The connection. */
     private Connection                     connection;
@@ -170,7 +170,52 @@ final class LorannBDDConnector {
      */
     public String getResult(int level) throws SQLException
     {
-    	final java.sql.CallableStatement callStatement = prepareCall("{call query_level(" + level + ")}");
-    	return callStatement.getResultSet().getString(2);
+    	//final java.sql.CallableStatement callStatement = prepareCall("{call query_level(" + level + ")}");
+    	//return callStatement.getResultSet().getString(2);
+    	String url = "jdbc:mysql://localhost/lorann?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        String login = "java";
+        String passwd = "java";
+        Connection cn =null;
+        Statement st =null;
+        ResultSet rs =null;
+        String test = "";
+       
+        try {
+
+            // Etape 1 : Chargement du driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Etape 2 : récupération de la connexion
+            cn = DriverManager.getConnection(url, login, passwd);
+
+            // Etape 3 : Création d'un statement
+            st = cn.createStatement();
+
+            String sql = "{call query_level("+level+")}";
+            java.sql.CallableStatement statement = cn.prepareCall(sql);
+
+            // Etape 4 : exécution requête
+            rs = st.executeQuery(sql);
+
+            // Si récup données alors étapes 5 (parcours Resultset)
+
+            while (rs.next()) {
+                test = rs.getString("Level_Code");
+                //System.out.println(test);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+            // Etape 6 : libérer ressources de la mémoire.
+                cn.close();
+                st.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return test;
     }
 }
