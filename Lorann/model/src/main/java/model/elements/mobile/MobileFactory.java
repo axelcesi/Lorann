@@ -13,7 +13,7 @@ import model.elements.Element;
 public abstract class MobileFactory {
 
 	/**
-	 * Creates an Hero, needs x&y
+	 * Creates an Hero needs x and y
 	 * @param x
 	 * @param y
 	 * @return
@@ -28,7 +28,7 @@ public abstract class MobileFactory {
     }
 
     /**
-     * Creates a monster, needs its type, x&y
+     * Creates a monster needs its type ans its x and y
      * @param x
      * @param y
      * @param type
@@ -41,7 +41,7 @@ public abstract class MobileFactory {
     }
 
     /**
-     * Casts a spell, needs a direction and x&y
+     * Casts a spell needs a direction and x and y
      * @param x
      * @param y
      * @param direction

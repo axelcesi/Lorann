@@ -37,7 +37,7 @@ public class Controller implements IOrderPerformer {
    
     /** 
      * Used to determine with an input the adequate move
-     * @param IUserOrder type object
+     * @param userOrder
      */
     public void orderPerform(final IUserOrder userOrder) {
         if (userOrder != null) {

@@ -16,7 +16,7 @@ public class Hero extends Mobile implements Runnable{
 	private boolean hasSpell = true;
 	
 	/**
-	 * The constructor for the Hero Class, needs an x&y
+	 * The constructor for the Hero Class needs an x and y
 	 * @param x
 	 * @param y
 	 * @throws IOException

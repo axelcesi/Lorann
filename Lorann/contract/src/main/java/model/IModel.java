@@ -5,10 +5,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.elements.IElement;
-import model.elements.Position;
-import model.elements.mobile.Direction;
-import model.elements.mobile.IMobile;
-import model.elements.motionless.Gate;
+import model.elements.*;
+import model.elements.mobile.*;
+import model.elements.motionless.*;
 
 /**
  * <h1>The Interface IModel</h1>

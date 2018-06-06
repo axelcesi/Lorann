@@ -20,7 +20,7 @@ public abstract class MotionlessElementFactory {
 	private CrystalBall crystalBall;*/
 	
 	/**
-	 * Creates a bone depending on x&y parameters
+	 * Creates a bone depending on x and y parameters
 	 * @param x
 	 * @param y
 	 * @return
@@ -32,7 +32,7 @@ public abstract class MotionlessElementFactory {
 	}
 	
 	/**
-	 * Creates a Vertical Bone depending on x&y parameters
+	 * Creates a Vertical Bone depending on x and y parameters
 	 * @param x
 	 * @param y
 	 * @return
@@ -44,7 +44,7 @@ public abstract class MotionlessElementFactory {
 	}
 	
 	/**.
-	 * Creates an horizontal Bone depending on x&y parameters
+	 * Creates an horizontal Bone depending on x and y parameters
 	 * @param x
 	 * @param y
 	 * @return
@@ -56,7 +56,7 @@ public abstract class MotionlessElementFactory {
 	}
 	
 	/**
-	 * Creates a gate depending on x&y parameters
+	 * Creates a gate depending on x and y parameters
 	 * @param x
 	 * @param y
 	 * @return
@@ -68,7 +68,7 @@ public abstract class MotionlessElementFactory {
 	}
 	
 	/**
-	 * Creates a purse depending on x&y parameters
+	 * Creates a purse depending on x and y parameters
 	 * @param x
 	 * @param y
 	 * @return
@@ -80,7 +80,7 @@ public abstract class MotionlessElementFactory {
 	}
 	
 	/**
-	 * Creates a Crystal Ball depending on x&y parameters
+	 * Creates a Crystal Ball depending on x and y parameters
 	 * @param x
 	 * @param y
 	 * @return

@@ -20,6 +20,7 @@ import model.elements.motionless.MotionlessElementFactory;
 
 public final class Model extends Observable implements IModel {
 
+	/** Change the INT LEVEL from 1 to 6 to change the level */
 	private static final int LEVEL = 6;
 	private final ArrayList<IElement> elements;       
     
@@ -36,7 +37,7 @@ public final class Model extends Observable implements IModel {
 
 	/**
 	 * Method used to get the level's String from the DataBase
-	 * @param int level
+	 * @param level
 	 * @return String 
 	 */
     public String getLevelLayout(int level) throws SQLException
